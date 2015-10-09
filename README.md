@@ -1,6 +1,8 @@
 # awesome-android-tips
 Android tips
 
+这里收集了大家常用的一些Android代码,内容摘自网络，部分原文地址在最下方。
+
 >* setBackgroundResource(0) 可以移除 View 的背景色
 
 >* Resources.getSystem().getDisplayMetrics().density 可以不用 Context 也能获取屏幕密度哦
