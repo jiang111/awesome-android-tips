@@ -72,7 +72,8 @@ Android tips
 >* viewpager 的 setCurrentItem 一定要在 setAdapter 方法之后调用才会有效果.
 
 >* 判断手机是不是飞行模式  boolean isEnabled = Settings.System.getInt(context.getContentResolver(), Settings.System.AIRPLANE_MODE_ON, 0) == 1;
-####摘自如下地址： 
+
+####摘自如下地址：(部分地址) 
 
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
