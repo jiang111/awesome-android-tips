@@ -94,10 +94,8 @@ public static void printMap(Map mp) {
 >* 使用Java在一个区间内产生随机整数数
 ```java
 public static int randInt(int min, int max) {
- 
     Random rand;
     int randomNum = rand.nextInt((max - min) + 1) + min;
- 
     return randomNum;
 }
 ```
