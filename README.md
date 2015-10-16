@@ -79,6 +79,28 @@ Android tips
 再在 TabLayout 的布局文件里设置 app:tabTextAppearance="@style/CustomTabLayoutTextAppearance" 即可。
 ![](http://ww1.sinaimg.cn/large/640f03afjw1ex0t1gub93j20ru0a477q.jpg)
 
+>* 遍历HashMap的最佳方法
+```java
+public static void printMap(Map mp) {
+    Iterator it = mp.entrySet().iterator();
+    while (it.hasNext()) {
+        Map.Entry pair = (Map.Entry)it.next();
+        System.out.println(pair.getKey() + " = " + pair.getValue());
+        it.remove(); // avoids a ConcurrentModificationException
+    }
+}
+```
+
+>* 使用Java在一个区间内产生随机整数数
+```java
+public static int randInt(int min, int max) {
+ 
+    Random rand;
+    int randomNum = rand.nextInt((max - min) + 1) + min;
+ 
+    return randomNum;
+}
+```
 ####摘自如下地址：(部分地址) 
 
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
