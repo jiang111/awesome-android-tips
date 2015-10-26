@@ -110,6 +110,7 @@ public static int randInt(int min, int max) {
 
 >* 类继承之间的调用顺序 父类static成员 -> 子类static成员 -> 父类普通成员初始化和初始化块 -> 父类构造方法 -> 子类普通成员初始化和初始化块 -> 子类构造方法
 
+>* 华为手机无法显示log解决方案,.拨号界面输入*#*#2846579#*#* Service menu will appear.Go to "ProjectMenu" -> "Background Setting" -> "Log Setting"Open "Log switch" and set it to ON.Open "Log level setting" and set the log level you wish.
 
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
