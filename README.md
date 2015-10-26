@@ -106,10 +106,12 @@ public static int randInt(int min, int max) {
 >* transient关键字修饰变量可以限制序列化。
 
 >* 当使用JakeWharton的TabPageIndicator时，如果需要先做一些耗时的操作，然后再展示TabPageIndicator的话，需要先设置mIndirector.setVisibility(View.GONE);然后耗时任务结束以后再mIndirector.setVisibility(View.VISIBLE);否则会报错
-####摘自如下地址：(部分地址)
+
 
 >* 类继承之间的调用顺序 父类static成员 -> 子类static成员 -> 父类普通成员初始化和初始化块 -> 父类构造方法 -> 子类普通成员初始化和初始化块 -> 子类构造方法
 
+
+####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
 >* http://weibo.com/liangfeizc?from=feed&loc=nickname
