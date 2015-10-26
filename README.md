@@ -99,6 +99,13 @@ public static int randInt(int min, int max) {
     return randomNum;
 }
 ```
+
+
+>* 如果子类实现Serializable接口而父类未实现时，父类不会被序列化，但此时父类必须有个无参构造方法，否则会抛InvalidClassException异常。
+
+>* transient关键字修饰变量可以限制序列化。
+
+>* 当使用JakeWharton的TabPageIndicator时，如果需要先做一些耗时的操作，然后再展示TabPageIndicator的话，需要先设置mIndirector.setVisibility(View.GONE);然后耗时任务结束以后再mIndirector.setVisibility(View.VISIBLE);否则会报错
 ####摘自如下地址：(部分地址) 
 
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
