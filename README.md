@@ -121,13 +121,22 @@ public static int randInt(int min, int max) {
 |START_REDELIVER_INTENT|重传Intent。使用这个返回值时，如果在执行完onStartCommand后，服务被异常kill掉，系统会自动重启该服务，并将Intent的值传入。|
 |START_STICKY_COMPATIBILITY|START_STICKY的兼容版本，但不保证服务被kill后一定能重启。  |
 
+>* 不能在Activity没有完全显示时显示PopupWindow和Dialog
 
+>* 在多进程之间不要用SharedPreferences共享数据，虽然可以（MODE_MULTI_PROCESS），但极不稳定
 
+>* 有些时候不能使用Application的Context，不然会报错（比如启动Activity，显示Dialog等）
+![](https://pic3.zhimg.com/e3f3236cbd96c69cdea10d014bacbeae_b.png)
+
+>* 谨慎使用Android的透明主题，透明主题会导致很多问题，比如：如果新的Activity采用了透明主题，那么当前Activity的onStop方法不会被调用；在设置为透明主题的Activity界面按Home键时，可能会导致刷屏不干净的问题；进入主题为透明主题的界面会有明显的延时感
+>* 不要在非UI线程中初始化ViewStub，否则会返回null
+
+>* 尽量不要通过Application缓存数据，这不稳定
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
 >* http://weibo.com/liangfeizc?from=feed&loc=nickname
-
+>* http://zhuanlan.zhihu.com/zmywly8866/20309921
 
 
 
