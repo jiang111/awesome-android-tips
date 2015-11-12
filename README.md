@@ -132,6 +132,12 @@ public static int randInt(int min, int max) {
 >* 不要在非UI线程中初始化ViewStub，否则会返回null
 
 >* 尽量不要通过Application缓存数据，这不稳定
+
+>* 华为手机无法打开USB调试的问题，
+1. 插好数据线,拨号界面 输入 *#*#2846579#*#* 进入工程模式
+2. projectmenu→3后台设置→4USB端口配置→Balong调试模式,点确定
+3. 不要拔线,退出工程模式,直接重启手机,电脑中显示可移动磁盘(若仍未出现,重复步骤1、2)
+4. 这个是关闭USB调试的情况下电脑中使用手机的可移动磁盘的方法，使用后下拉菜单中usb选项也回来了。
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
