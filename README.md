@@ -138,6 +138,9 @@ public static int randInt(int min, int max) {
 2. projectmenu→3后台设置→4USB端口配置→Balong调试模式,点确定
 3. 不要拔线,退出工程模式,直接重启手机,电脑中显示可移动磁盘(若仍未出现,重复步骤1、2)
 4. 这个是关闭USB调试的情况下电脑中使用手机的可移动磁盘的方法，使用后下拉菜单中usb选项也回来了。
+
+>* android listview中的消息被软键盘遮挡了,在设置listview的时候加上android:transcriptMode="normal"就好了
+
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
