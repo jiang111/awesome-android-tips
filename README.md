@@ -143,6 +143,9 @@ public static int randInt(int min, int max) {
 
 >* TextUtils 是一个非常好用的工具类，把 List<String> 转成字符串，逗号分隔，逗号分隔的 String 字符串，切割成 List<String> ，分别可以用 TextUtils 的 join 和 split 方法。如果要对 List 去重，则可以用 Collection 的 frequency 方法。
 
+>* 在activity中调用 moveTaskToBack (boolean nonRoot)方法即可将activity 退到后台，注意不是finish()退出。
+
+>* activity中的runOnUiThrea(Runnable action)方法可以直接回到主线程
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
