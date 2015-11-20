@@ -141,6 +141,9 @@ public static int randInt(int min, int max) {
 
 >* android listview中的消息被软键盘遮挡了,在设置listview的时候加上android:transcriptMode="normal"就好了
 
+>* listview有个footerDividersEnabled和headerDividersEnabled方法可以设置listview的顶部和底部divide，但是必须保证你设置了headview和footview才会有效果
+
+
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
