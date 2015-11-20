@@ -141,6 +141,13 @@ public static int randInt(int min, int max) {
 
 >* android listview中的消息被软键盘遮挡了,在设置listview的时候加上android:transcriptMode="normal"就好了
 
+
+>* TextUtils 是一个非常好用的工具类，把 List<String> 转成字符串，逗号分隔，逗号分隔的 String 字符串，切割成 List<String> ，分别可以用 TextUtils 的 join 和 split 方法。如果要对 List 去重，则可以用 Collection 的 frequency 方法。
+
+>* 在activity中调用 moveTaskToBack (boolean nonRoot)方法即可将activity 退到后台，注意不是finish()退出。
+
+>* activity中的runOnUiThrea(Runnable action)方法可以直接回到主线程
+
 >* listview有个footerDividersEnabled和headerDividersEnabled方法可以设置listview的顶部和底部divide，但是必须保证你设置了headview和footview才会有效果
 
 
