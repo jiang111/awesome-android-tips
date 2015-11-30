@@ -1,7 +1,7 @@
 # awesome-android-tips
 Android tips
 
-这里收集了大家常用的一些Android代码,内容摘自网络，部分原文地址在最下方。如有错误欢迎指正
+这里收集了大家常用的一些Android代码,内容摘自网络，部分原文地址在最下方。如有错误欢迎指正。里面可能会有重复内容,请忽略
 
 >* setBackgroundResource(0) 可以移除 View 的背景色
 
@@ -150,13 +150,81 @@ public static int randInt(int min, int max) {
 
 >* listview有个footerDividersEnabled和headerDividersEnabled方法可以设置listview的顶部和底部divide，但是必须保证你设置了headview和footview才会有效果
 
+>* Throwable类中的getStackTrace()方法，根据这个方法可以得到函数的逐层调用地址，其返回值为StackTraceElement[]；
+
+>* StackTraceElement类，其中四个方法getClassName()，getFileName()，getLineNumber()，getMethodName()在调试程序打印Log时非常有用；
+
+>* UncaughtExceptionHandler接口，再好的代码异常难免，利用此接口可以对未捕获的异常善后
+
+>* Resources类中的getIdentifier(name, defType, defPackage)方法，根据资源名称获取其ID，做UI时经常用到；
+
+>* view的isShown方法，只有当view本身以及它的所有祖先们都是visible时，isShown（）才返回TRUE。而平常我们调用if(view.getVisibility() == View.VISIBLE)只是对view本身而不对祖先的可见性进行判断。
+
+>* Arrays类中的一系列关于数组操作的工具方法：binarySearch()，asList()，equals()，sort()，toString()，copyOfRange()等；Collections类中的一系列关于集合操作的工具方法：sort()，reverse()等；
+
+>* android.text.format.Formatter类中formatFileSize(Context, long)方法，用来格式化文件Size（B → KB → MB → GB）；
+
+>* android.media.ThumbnailUtils类，用来获取媒体（图片、视频）缩略图；
+
+>* TextView类中的append(CharSequence)方法，添加文本。一些特殊文本直接用+连接会变成String；
+
+>* System类中的arraycopy(src, srcPos, dest, destPos, length)方法，用来copy数组；
+
+>* Fragment类中的onHiddenChanged(boolean)方法，使用FragmentTransaction中的hide()，show()时貌似Fragment的其它生命周期方法都不会被调用，太坑爹！
+
+>* Activity类中的onWindowFocusChanged(boolean)，onNewIntent(intent)等回调方法；
+
+>* TextView类中的setTransformationMethod(TransformationMethod)方法，可用来实现“显示密码”功能
+
+>* PageTransformer接口，用来自定义ViewPager页面切换动画，用setPageTransformer(boolean, PageTransformer)方法来进行设置；
+
+>* apache提供的一系列jar包：commons-lang.jar，commons-collections.jar，commons-beanutils.jar等，里面很多方法可能是你曾经用几十几百行代码实现过的，但是执行效率或许要差很多，比如：ArrayUtils，StringUtils……；
+
+>* ActivityLifecycleCallbacks接口，用于在Application类中监听各Activity的状态变化 ![阅读地址]{http://mp.weixin.qq.com/s?__biz=MzA3ODkzNzM3NQ==&mid=401277907&idx=1&sn=0b2246f5178292596fc3a8295283359c#rd}
+
+>* ActionBar.hide()/.show() 顾名思义，隐藏和显示ActionBar，可以优雅地在全屏和带Actionbar之间转换。
+
+>* SystemClock.sleep() 这个方法在保证一定时间的 sleep 时很方便，通常我用来进行 debug 和模拟网络延时。
+
+>* UrlQuerySanitizer——使用这个工具可以方便对 URL 进行检查。
+
+>* ActivityOptions ——方便的定义两个Activity切换的动画。 使用ActivityOptionsCompat 可以很好解决旧版本的兼容问题。
+
+>* getParent().requestDisallowInterceptTouchEvent(true);剥夺父view对touch事件的处理权，谁用谁知道。
+
+>* HandlerThread，代替不停new Thread开子线程的重复体力写法。
+ 
+>* IntentService,一个可以干完活后自己去死且不需要我们去管理子线程的Service
+
+>* Executors. newSingleThreadExecutor();这个是java的，之前不知道它，自己花很大功夫去研究了单线程顺序执行的任务队列 
+
+>* android:animateLayoutChanges="true"，LinearLayout中添加View的动画的办法，支持通过setLayoutTransition()自定义动画。
+
+>* AsyncQueryHandler，如果做系统工具类的开发，比如联系人短信辅助工具等，肯定免不了和ContentProvider打交道，如果数据量不是很大的情况下，随便搞，如果数据量大的情况下，了解下这个类是很有必要的，需要注意的是，这玩意儿吃异常..
+
+>* ViewFlipper，实现多个view的切换(循环)，可自定义动画效果，且可针对单个切换指定动画。
+
+>* android util包中的Pair类，可以方便的用来存储一"组"数据。注意不是key value
+
+>* android:descendantFocusability，ListView的item中CheckBox等元素抢焦点导致item点击事件无法响应时，除了给对应的元素设置 focusable,更简单的是在item根布局加上android:descendantFocusability=”blocksDescendants” 
+
+>* includeFontPadding="false"，TextView默认上下是有一定的padding的，有时候我们可能不需要上下这部分留白，加上它即可。
+
+>* Messenger，面试的时候通常都会被问到进程间通信，一般情况下大家都是开始背书，AIDL巴拉巴拉。。有一天在鸿神的博客看到这个，嗯，如他所说，又可以装一下了。 
+
+>* EditTxt.setImeOptions， 使用EditText弹出软键盘时，修改回车键的显示内容(一直很讨厌用回车键来交互，所以之前一直不知道这玩意儿) 
+
+>* java8中新增的LocalDate和LocalTime接口，Date虽然是个万能接口，但是它真的不好用，有了这俩，终于可以愉快的处理日期时间了。
+
+>* WeakHashMap，直接使用HashMap有时候会带来内存溢出的风险，使用WaekHashMap实例化Map。当使用者不再有对象引用的时候，WeakHashMap将自动被移除对应Key值的对象。
+
 
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
 >* http://weibo.com/liangfeizc?from=feed&loc=nickname
 >* http://zhuanlan.zhihu.com/zmywly8866/20309921
-
+>* http://www.zhihu.com/question/33636939
 
 
 
