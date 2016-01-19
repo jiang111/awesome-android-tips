@@ -218,6 +218,8 @@ public static int randInt(int min, int max) {
 
 >* WeakHashMap，直接使用HashMap有时候会带来内存溢出的风险，使用WaekHashMap实例化Map。当使用者不再有对象引用的时候，WeakHashMap将自动被移除对应Key值的对象。
 
+>* 使用SnackBar的时候，不要使用view.getRootView()作为snackbar的view,华为荣耀7 会出问题。
+
 
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
