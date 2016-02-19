@@ -222,13 +222,39 @@ public static int randInt(int min, int max) {
 
 >* 设置TextView单行显示的时候不要用Lines=1,而要用singleLine="true" ,因为魅族部分手机在设置Lines=1的时候，然后TextView的值全为数字的时候， 你就会懵逼了.
 
+>* TouchDelegate可用于更改View的触摸区域。场景：比如在RecyclerView的ItemView里包含了CheckBox组件, 然后想实现点击ItemView的时候，也可以触发CheckBox，就可以使用此类
+
+>* ArgbEvaluator可用于计算不同颜色值之间的插值，配合ValueAnimator.ofObject或者ViewPager.PageTransformer使用，可以实现不同颜色之间的平滑过渡。
+
+>* Palette可用于提取一张图片的颜色。
+
+>* ViewDragHelper,做过自定义ViewGroup的童鞋都应该知道这个东西吧，用来处理触摸事件的神器，妈妈再也不用担心我自定义控件了。
+
+>* PageTransformer用于定义ViewPager页面切换时的动画效果（淡入淡出，放大缩小神马的…）官方有例子，直接看吧。
+
+>* Formatter.formatFileSize根据文件大小自动转为以KB, MB, GB为单位的工具类。想想以前都是自己计算的…
+
+>* Activity.recreate重新创建Activity。有什么用呢？可以在程序更换主题后，立马刷新当前Activity，而不会有明显的重启Activity的动画。
+
+>* View.getContext顾名思义，就不用解释了吧…以前在写RecyclerView的Adapter的时候，为了使用LayoutInflater，经常傻乎乎地在构造函数中传入一个外部的context….是不是只有我不知道而已（笑cry脸）
+
+>* View.post方便在非UI线程对界面进行修改，与Handler的作用类似。并且由于post的Runnable会保证在该View绘制完成的前提下才调用，所以一般也可以用于获取View的宽高。
+
+>* Activity.runOnUiThread与View.post类似，方便在非UI线程中对界面进行修改。
+
+>* Fragment.setUserVisibleHintFragment可以重写此方法，然后根据参数的布尔值（true的话表示当前Fragment对用户可见），来执行一些逻辑。
+
+>* android:animateLayoutChanges 这是一个非常酷炫的属性。在父布局加上 android:animateLayoutChanges="true" 后，如果触发了layout方法（比如它的子View设置为GONE），系统就会自动帮你加上布局改变时的动画特效！！
+
+>* android:clipToPadding 设置父view是否允许其子view在它的padding（这里指的是父View的padding）中绘制。是不是有点绕？举个实际场景吧：假如有个ListView，我们想要在初始位置时，第一项Item离顶部有10dp的距离，就可以在ListView的布局中加入android:clipToPadding="false" android:paddingTop="10dp"即可。是不是很方便呢？
+
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
 >* http://weibo.com/liangfeizc?from=feed&loc=nickname
 >* http://zhuanlan.zhihu.com/zmywly8866/20309921
 >* http://www.zhihu.com/question/33636939
-
+>* http://gold.xitu.io/entry/56c2b9b779bc4400540894ac
 
 
 
