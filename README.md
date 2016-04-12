@@ -51,7 +51,7 @@ Android tips
 
 >* ThumbnailUtils 这个类主要是用来处理缩略图相关的，有过这方面需求的，应该是用过这个类的。
 
->* Bitmap.extractAlpha() 返回一个新的位图，该位图从源图中捕获了alpha值。这个方法可能跟Canvas.drawBitmap()一起被画，颜色值从传递过来的画笔中获取。
+>* Bitmap.extractAlpha ();返回一个新的Bitmap，capture原始图片的alpha值。有的时候我们需要动态的修改一个元素的背景图片又不希望使用多张图片的时候，通过这个方法，结合Canvas和Paint可以动态的修改一个纯色Bitmap的颜色。
 
 >* 模块间有消息需要传递时，使用LocalBroadcastManager替代Listener进行模块解耦。除了解耦，这样发送消息和执行消息差一个线程循环，可以减小方法的调用链，我这就碰到一次方法调用链太长导致StackOverflow的问题。
 
@@ -256,6 +256,30 @@ public static int randInt(int min, int max) {
 
 >* RecyclerView在23.2.+的版本中新增了自动测量的功能，由于新增了自动测量，那么它的item的根布局在需要测量的方向上就不能写match_parent了，需要改成wrap_content
 
+>* getParent().requestDisallowInterceptTouchEvent(true);剥夺父view对touch事件的处理权，谁用谁知道。
+
+>* Canvas中clipRect、clipPath和clipRegion剪切区域的API。
+
+>* GradientDrawable 有个阴影效果还不错，以为是切的图片，一看代码，什么鬼= =！
+
+>* 有朋友提到了在自定义View时有些方法在开启硬件加速的时候没有效果的问题，在API16之后确实有很多方法不支持硬件加速，通常我们关闭硬件加速都是在清单文件中通过<application android:hardwareAccelerated="false" ...>，其实android也提供了针对特定View关闭硬件加速的方法,调用View.setLayerType(View.LAYER_TYPE_SOFTWARE, null);即可。
+
+>* PointF，graphics包中的一个类，我们经常见到在处理Touch事件的时候分别定义一个downX，一个downY用来存储一个坐标，如果坐标少还好，如果要记录的坐标过多那代码就不好看了。用PointF(float x, float y);来描述一个坐标点会清楚很多。
+
+>* StateListDrawable，定义Selector通常的办法都是xml文件，但是有的时候我们的图片资源可能是从服务器动态获取的，比如很多app所谓的皮肤，这种时候就只能通StateListDrawable来完成了，各种addState即可。
+
+>* android:duplicateParentState="true"，让子View跟随其Parent的状态，如pressed等。常见的使用场景是某些时候一个按钮很小，我们想要扩大其点击区域的时候通常会再给其包裹一层布局，将点击事件写到Parent上，这时候如果希望被包裹按钮的点击效果对应的Selector继续生效的话，这时候duplicateParentState就派上用场了。
+
+>* ViewConfiguration.getScaledTouchSlop();触发移动事件的最小距离，自定义View处理touch事件的时候，有的时候需要判断用户是否真的存在movie，系统提供了这样的方法。
+
+>* ViewStub，有的时候一块区域需要根据情况显示不同的布局，通常我们都会通过setVisibility的方法来显示和隐藏不同的布局，但是这样默认是全部加载的，用ViewStub可以更好的提升性能。
+
+>* onTrimMemory，在Activity中重写此方法，会在内存紧张的时候回调（支持多个级别），便于我们主动的进行资源释放，避免OOM。
+
+>* TextView.setCompoundDrawablePadding，代码设置TextView的drawable padding。
+
+>* ImageSwitcher，可以用来做图片切换的一个类，类似于幻灯片。
+
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
@@ -263,6 +287,7 @@ public static int randInt(int min, int max) {
 >* http://zhuanlan.zhihu.com/zmywly8866/20309921
 >* http://www.zhihu.com/question/33636939
 >* http://gold.xitu.io/entry/56c2b9b779bc4400540894ac
+>* https://www.zhihu.com/question/33636939/answer/57239990?group_id=612750833369153536
 
 
 
