@@ -280,6 +280,8 @@ public static int randInt(int min, int max) {
 
 >* ImageSwitcher，可以用来做图片切换的一个类，类似于幻灯片。
 
+>* 在自定义控件的时候,能用drawable来绘制圆，或者其他样式的时候,尽量用drawable,因为drawable的效果要远胜于canvas.drawXXX().
+
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
