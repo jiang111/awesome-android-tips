@@ -3,7 +3,7 @@ Android tips
 
 收集Android studio 常用的插件,请看这里:https://github.com/jiang111/awesome-androidstudio-plugins
 
-这里收集了大家常用的一些Android代码,持续更新中,内容来自自己的平时积累和网络上看到的文章，部分原文地址在最下方。如有错误欢迎指正。里面可能会有重复内容,请忽略,有需要的可以fork,fork前别忘了点赞
+这里收集了大家常用的一些Android代码,持续更新中,内容来自自己的平时积累和网络上看到的文章，部分原文地址在最下方。如有错误欢迎指正,如有侵权,请联系我删除。里面可能会有重复内容,请忽略,有需要的可以fork,fork前别忘了点赞哦
 
 >* setBackgroundResource(0) 可以移除 View 的背景色
 
@@ -281,6 +281,8 @@ public static int randInt(int min, int max) {
 >* ImageSwitcher，可以用来做图片切换的一个类，类似于幻灯片。
 
 >* 在自定义控件的时候,能用drawable来绘制圆，或者其他样式的时候,尽量用drawable,因为drawable的效果要远胜于canvas.drawXXX().
+
+>* 如果想要自定义View支持SwipeRefreshLayout，只需要声明并实现ScrollingView接口即可，RecyclerView和NestedScrollView已经实现此接口。
 
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
