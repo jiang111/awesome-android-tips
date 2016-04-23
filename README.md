@@ -284,6 +284,22 @@ public static int randInt(int min, int max) {
 
 >* 如果想要自定义View支持SwipeRefreshLayout，只需要声明并实现ScrollingView接口即可，RecyclerView和NestedScrollView已经实现此接口。
 
+>* AtomicFile——通过使用备份文件进行文件的原子化操作。这个知识点之前我也写过，不过最好还是有出一个官方的版本比较好。
+
+>* DatabaseUtils——一个包含各种数据库操作的使用工具。
+
+>* Activity.isChangingConfigurations ()——如果在 Activity 中 configuration 会经常改变的话，使用这个方法就可以不用手动做保存状态的工作了。
+
+>* SearchRecentSuggestionsProvider——可以创建最近提示效果的 provider，是一个简单快速的方法。
+
+>* android:clipChildren (ViewGroup)——如果此属性设置为不可用，那么 ViewGroup 的子 View 在绘制的时候会超出它的范围，在做动画的时候需要用到。
+
+>* android:fillViewport (ScrollView)——在这片文章中有详细介绍文章链接，可以解决在 ScrollView 中当内容不足的时候填不满屏幕的问题。
+
+>* android:tileMode (BitmapDrawable)——可以指定图片使用重复填充的模式。
+
+>* android:enterFadeDuration/android:exitFadeDuration (Drawables)——此属性在 Drawable 具有多种状态的时候，可以定义它展示前的淡入淡出效果。
+
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
@@ -292,7 +308,7 @@ public static int randInt(int min, int max) {
 >* http://www.zhihu.com/question/33636939
 >* http://gold.xitu.io/entry/56c2b9b779bc4400540894ac
 >* https://www.zhihu.com/question/33636939/answer/57239990?group_id=612750833369153536
-
+>* http://mp.weixin.qq.com/s?__biz=MzA4MTM2MjE2MA==&mid=2650836293&idx=3&sn=2624066ababb6b613634015f54ea19b6&scene=0#wechat_redirect
 
 
 
