@@ -1,6 +1,8 @@
 # awesome-android-tips
 Android tips
 
+收集 RxJava常用的一些场景,请看这里: https://github.com/jiang111/awesome-android-tips/blob/master/rxjava_readme.md
+
 收集Android studio 常用的插件,请看这里:https://github.com/jiang111/awesome-androidstudio-plugins
 
 这里收集了大家常用的一些Android代码,持续更新中,内容来自自己的平时积累和网络上看到的文章，部分原文地址在最下方。如有错误欢迎指正,如有侵权,请联系我删除。里面可能会有重复内容,请忽略,有需要的可以fork,fork前别忘了点赞哦
