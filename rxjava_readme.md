@@ -1,6 +1,6 @@
 RxJava使用场景总结
 
-####文档中说到的场景在https://github.com/jiang111/RxJavaDemo 项目中都有实现
+文档中说到的场景在https://github.com/jiang111/RxJavaDemo 中都有实现
 
 >* Scheduler线程切换
 
