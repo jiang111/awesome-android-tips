@@ -302,6 +302,8 @@ public static int randInt(int min, int max) {
 
 >* android:enterFadeDuration/android:exitFadeDuration (Drawables)——此属性在 Drawable 具有多种状态的时候，可以定义它展示前的淡入淡出效果。
 
+>* Log.wtf()的意思是What a Terrible Failure,而不是What The Fuck!
+
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
