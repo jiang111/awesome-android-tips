@@ -344,8 +344,6 @@ public void captureView(){
                 }
                 bmp1.recycle();
 }
-
-//去掉状态栏
 private int getStatusHeight(Context ct) {
         int result = 0;
         int resourceId = ct.getResources().getIdentifier("status_bar_height", "dimen", "android");
