@@ -330,6 +330,40 @@ public static Bitmap blurBitmap(Context context, Bitmap src, int radius) {
     }
 ```
 
+>* 将view转换成bitmap
+
+```
+public void captureView(){
+    int height = getStatusHeight(mContext);
+    Bitmap bmp1 = Bitmap.createBitmap(tempView.getWidth(), tempView.getHeight(),
+                        Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(bmp1);
+                tempView.draw(canvas);
+                int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+                Bitmap bmp2 = null;
+                /**
+                 * 如果版本是5.0以上,要去掉状态栏
+                 */
+                if (currentapiVersion >= Build.VERSION_CODES.LOLLIPOP) {
+                    bmp2 = Bitmap.createBitmap(bmp1, 0, height, bmp1.getWidth(), bmp1.getHeight() - height);
+                } else {
+                    bmp2 = Bitmap.createBitmap(bmp1);
+                }
+                bmp1.recycle();
+}
+
+//去掉状态栏
+private int getStatusHeight(Context ct) {
+        int result = 0;
+        int resourceId = ct.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = ct.getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
+
+```
+
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
