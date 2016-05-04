@@ -303,8 +303,7 @@ public static int randInt(int min, int max) {
 >* Log.wtf()的意思是What a Terrible Failure,而不是What The Fuck!
 
 >* 使用RenderScript虚化图片效果。如果你的app的minSDK为16或者更低，你需要使用support模式，因为很多方法都是在API 17之后添加的。renderscriptTargetApi最高到23，但是你应该把它设置到能保持脚本中使用到的功能完整的最低API。如果你想在support模式下target API 21+你必须使用gradle-plugin 2.1.0 和 buildToolsVersion “23.0.3” 或者以上。
-
-```
+```java
 gradle:
         renderscriptTargetApi 18
         renderscriptSupportModeEnabled true
@@ -331,8 +330,7 @@ public static Bitmap blurBitmap(Context context, Bitmap src, int radius) {
 ```
 
 >* 将view转换成bitmap
-
-```
+```java
 public void captureView(){
     int height = getStatusHeight(mContext);
     Bitmap bmp1 = Bitmap.createBitmap(tempView.getWidth(), tempView.getHeight(),
