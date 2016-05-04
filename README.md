@@ -373,7 +373,7 @@ private int getStatusHeight(Context ct) {
 >* http://gold.xitu.io/entry/56c2b9b779bc4400540894ac
 >* https://www.zhihu.com/question/33636939/answer/57239990?group_id=612750833369153536
 >* http://mp.weixin.qq.com/s?__biz=MzA4MTM2MjE2MA==&mid=2650836293&idx=3&sn=2624066ababb6b613634015f54ea19b6&scene=0#wechat_redirect
-
+>* http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0504/4205.html
 
 
 
