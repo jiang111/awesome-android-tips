@@ -1,6 +1,8 @@
 # awesome-android-tips
 Android tips
 
+收集程序员必备的那些Chrome插件: https://github.com/jiang111/chrome-plugin-recommand
+
 博客地址:http://www.jyuesong.com
 
 收集Android studio 常用的插件,请看这里:https://github.com/jiang111/awesome-androidstudio-plugins
