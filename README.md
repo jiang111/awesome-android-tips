@@ -1,12 +1,6 @@
 # awesome-android-tips
 Android tips
 
-收集程序员必备的那些Chrome插件: https://github.com/jiang111/chrome-plugin-recommand
-
-博客地址:http://www.jyuesong.com
-
-收集Android studio 常用的插件,请看这里:https://github.com/jiang111/awesome-androidstudio-plugins
-
 这里收集了大家常用的一些Android代码,持续更新中,内容来自自己的平时积累和网络上看到的文章，部分原文地址在最下方。如有错误欢迎指正,如有侵权,请联系我删除。里面可能会有重复内容,请忽略,有需要的可以fork,fork前别忘了点赞哦
 
 >* setBackgroundResource(0) 可以移除 View 的背景色
@@ -371,6 +365,18 @@ private int getStatusHeight(Context ct) {
 
 
 
+####推荐
 
+>* 收集Android你不知道的那些小技巧:https://github.com/jiang111/awesome-android-tips
+
+>* 收集Android studio 常用的插件,请看这里:https://github.com/jiang111/awesome-androidstudio-plugins
+
+>* 收集程序员必备的那些Chrome插件: https://github.com/jiang111/chrome-plugin-recommand
+
+>* 通过RecyclerView实现的联系人: https://github.com/jiang111/IndexRecyclerView
+
+>* 用于学习RxJava操作符的APP: https://github.com/jiang111/RxJavaApp
+
+>* 展示注册进度的view: https://github.com/jiang111/ProgressView
 
 
