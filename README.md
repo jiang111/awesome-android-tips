@@ -358,6 +358,7 @@ private int getStatusHeight(Context ct) {
 
 >* PopupWindow默认点击外部的时候不消失，需要对PopupWindow 设置一个背景图popWindow.setBackgroundDrawable(new BitmapDrawable());要创建一个空对象，设置为null是不行的，或者就创建一个全透明的背景图。
 
+>* android中的序列化官方推荐Parceble,其实Parceble最好用于内存之间数据的交换,如果要把数据写入硬盘的话,推荐实现Serializable
 
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
