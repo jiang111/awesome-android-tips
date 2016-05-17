@@ -360,6 +360,14 @@ private int getStatusHeight(Context ct) {
 
 >* android中的序列化官方推荐Parceble,其实Parceble最好用于内存之间数据的交换,如果要把数据写入硬盘的话,推荐实现Serializable
 
+>* tools标签可以很好的帮助开发者实时预览xml的效果,并且运行以后tools标签的内容不会展示出来.例如:
+```xml
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:text="这段话只在预览时能看到,运行以后就看不到了" />
+```
+
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
