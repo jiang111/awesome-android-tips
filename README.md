@@ -368,6 +368,18 @@ private int getStatusHeight(Context ct) {
     tools:text="这段话只在预览时能看到,运行以后就看不到了" />
 ```
 
+>* android studio 2.2起已经支持jdk8了,使用的时候要在gradle中加上
+```
+android {
+   ...
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+```
+
+
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
