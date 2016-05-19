@@ -9,7 +9,7 @@ Android tips
 
 >* 通过重载 ViewGroup 的 dispatchDraw 可以实现一个简单的蒙版效果。 例如下拉刷新时，可以在 contentView 上加一层遮罩。 canvas.drawRect(0, mContentView.getTranslationY(), getWidth(), getHeight(), mMaskPaint);
 
->* new 出来的 View 可以用 View.generateViewId() （API 17 以上可用） 生成 id，系统保证唯一
+>* new 出来的 View 可以用 View.generateViewId() （API 17 以上可用）   生成 id，系统保证唯一
 
 >* 使用 GridView时 android:padding 和 android:clipToPadding="false" 配合使用效果更好哦。
 
