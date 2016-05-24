@@ -128,6 +128,12 @@ public static int randInt(int min, int max) {
 >* 有些时候不能使用Application的Context，不然会报错（比如启动Activity，显示Dialog等）
 ![](https://pic3.zhimg.com/e3f3236cbd96c69cdea10d014bacbeae_b.png)
 
+>*备注：大家注意看到有一些NO上添加了一些数字，其实这些从能力上来说是YES，但是为什么说是NO呢？下面一个一个解释：
+1. 数字1：启动Activity在这些类中是可以的，但是需要创建一个新的task，一般情况不推荐；
+2. 数字2：在这些类中去layout inflate是合法的，但是会使用系统默认的主题样式，如果你自定义了某些样式可能不会被使用；
+3. 数字3：在Receiver为null时允许，在4.2或以上的版本中，用于获取黏性广播的当前值。（可以无视）；
+4. ContentProvider、BroadcastReceiver之所以在上述表格中，是因为在其内部方法中都有一个context用于使用。
+
 >* 谨慎使用Android的透明主题，透明主题会导致很多问题，比如：如果新的Activity采用了透明主题，那么当前Activity的onStop方法不会被调用；在设置为透明主题的Activity界面按Home键时，可能会导致刷屏不干净的问题；进入主题为透明主题的界面会有明显的延时感
 >* 不要在非UI线程中初始化ViewStub，否则会返回null
 
