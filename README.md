@@ -422,6 +422,8 @@ git commit -m 'update .gitignore'
 
 ####推荐
 
+>* 更好的管理线程间跳转的库 https://github.com/jiang111/ObservableScheduler
+
 >* 收集Android你不知道的那些小技巧:https://github.com/jiang111/awesome-android-tips
 
 >* 收集Android studio 常用的插件,请看这里:https://github.com/jiang111/awesome-androidstudio-plugins
