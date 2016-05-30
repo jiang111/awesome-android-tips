@@ -374,9 +374,15 @@ private int getStatusHeight(Context ct) {
     tools:text="这段话只在预览时能看到,运行以后就看不到了" />
 ```
 
->* android studio 2.2起已经支持jdk8了,使用的时候要在gradle中加上
+>* android studio 2.1起已经支持jdk8了,使用的时候要在gradle中加上
 ```
 android {
+    defaultConfig {
+    ...
+            jackOptions {
+                enabled true
+            }
+        }
    ...
     compileOptions {
         targetCompatibility 1.8
