@@ -374,7 +374,7 @@ private int getStatusHeight(Context ct) {
     tools:text="这段话只在预览时能看到,运行以后就看不到了" />
 ```
 
->* android studio 2.1起已经支持jdk8了,使用的时候要在gradle中加上
+>* android studio 2.1起已经支持jdk8了,使用的时候要在gradle中加上,需要把buildToolsVersion更新到24以上的版本
 ```
 android {
     defaultConfig {
@@ -411,6 +411,8 @@ git rm -r --cached .
 git add .
 git commit -m 'update .gitignore'
 ```
+
+>* 时间戳请使用long或者String类型接收，遇到的坑,由于项目中的model好多都是通过GsonFormat生成的，服务器给的json中的时间戳都是10位的，导致了GsonFormat自动解析成了int, 当测试人员选择时间为2100年的时候时间戳是4开头的十位 用int类型接收越界了,导致报错
 
 
 ####摘自如下地址：(部分地址)
