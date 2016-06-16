@@ -429,8 +429,8 @@ git commit -m 'update .gitignore'
 >* http://www.pfeng.org/archives/840#123-tsina-1-92600-1bb80a0982f5c2ea1fcaf67d7fdce2f1
 
 ####个人微信公众号:
-微信号:androidesigner
-扫码关注
+微信号:androidesigner <br />
+扫码关注 <br />
 ![](https://raw.githubusercontent.com/jiang111/wechat_article/master/qrcode.jpg)
 
 ####推荐
