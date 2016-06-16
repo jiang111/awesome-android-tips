@@ -430,7 +430,6 @@ git commit -m 'update .gitignore'
 
 ####个人微信公众号:
 微信号:androidesigner <br />
-扫码关注 <br />
 ![](https://raw.githubusercontent.com/jiang111/wechat_article/master/qrcode.jpg)
 
 ####推荐
