@@ -414,6 +414,26 @@ git commit -m 'update .gitignore'
 
 >* 时间戳请使用long或者String类型接收，遇到的坑,由于项目中的model好多都是通过GsonFormat生成的，服务器给的json中的时间戳都是10位的，导致了GsonFormat自动解析成了int, 当测试人员选择时间为2100年的时候时间戳是4开头的十位 用int类型接收越界了,导致报错
 
+>* 为你的app添加默认布局样式,比如:每一个控件都需要写width和height属性,然而很多的控件的宽高属性都是wrap_content,那么我们可以通过在style文件添加如下样式:
+```
+<style name="Theme.YourApp" parent="android:style/Theme.Light">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+</style>
+```
+这样,控件的宽高默认都是wrap_content样式啦。
+
+>* 在style中写的样式通过视同parent标签来扩展你的样式,这样更高效。
+```
+<style name="Fill">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">fill_parent</item>
+</style>
+<style name="Fill.Height" parent="@style/Fill">
+    <item name="android:orientation">vertical</item>
+</style>
+```
+
 
 ####摘自如下地址：(部分地址)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
