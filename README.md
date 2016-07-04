@@ -436,7 +436,7 @@ git commit -m 'update .gitignore'
 
 >* Android上的应用切换按钮列出的其实不是应用而是Task，所以你会看到有的应用在切换视图里有多个任务。如果你的应用中有逻辑上相互独立的部分，或者想在多窗口环境下并排显示应用的两个不同部分，这种情况就适合多任务了。使用manifest属性(静态)或者 intent flags(动态)可以实现这一点,详见视频: http://v.youku.com/v_show/id_XMTU2ODk4NDg2NA==.html?f=26587294
 
-<img src="https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/multy_task1.jpg" width = "50%" height="100px" /><img src="https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/multy_task2.jpg" width = "50%"  height="100px"/>
+<img src="https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/multy_task1.jpg" width = "50%" height="300px" /><img src="https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/multy_task2.jpg" width = "50%"  height="300px"/>
 
 
 ####摘自如下地址：(部分地址)
