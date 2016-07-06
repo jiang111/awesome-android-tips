@@ -248,7 +248,7 @@ public static int randInt(int min, int max) {
 
 >* Activity.runOnUiThread与View.post类似，方便在非UI线程中对界面进行修改。
 
->* Fragment.setUserVisibleHintFragment可以重写此方法，然后根据参数的布尔值（true的话表示当前Fragment对用户可见），来执行一些逻辑。
+>* Fragment在配合PagerAdapter使用的时候可以重写setUserVisibleHintFragment()方法，然后根据参数的布尔值（true的话表示当前Fragment对用户可见），来执行一些逻辑。
 
 >* android:animateLayoutChanges 这是一个非常酷炫的属性。在父布局加上 android:animateLayoutChanges="true" 后，如果触发了layout方法（比如它的子View设置为GONE），系统就会自动帮你加上布局改变时的动画特效！！
 
