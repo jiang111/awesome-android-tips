@@ -17,7 +17,7 @@ English_Version:https://github.com/jiang111/awesome-android-tips/blob/master/Eng
 
 >* 在布局文件中，如果只是为了占位，可以用 Space 来取代 View。 最棒的一点是Space可以跳过 Draw 这个过程。
 
->* applyDimension(int unit, float value, DisplayMetrics metrics) 方便dp, px, sp 之间的转换。
+>* TypedValue.applyDimension(int unit, float value, DisplayMetrics metrics) 方便dp, px, sp 之间的转换。
 
 >* Activity.startActivities() 这个方法最直接的理解就是使用intent开启多个Activity
 
