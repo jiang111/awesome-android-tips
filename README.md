@@ -39,15 +39,11 @@ English_Version:https://github.com/jiang111/awesome-android-tips/blob/master/Eng
 
 >* Formatter.formatFileSize() 这个方法会格式化数据的大小，根据输入的字节大小，返回 B KB MB GB 等等（最大支持到 PB）。当然要注意的是输入的最大值是 Long.MAX_VALUE.
 
->* TypedValue.applyDimension() 首先这个方法我们可以用来对sp dp 和 px 之间的单位转换。应该是有不少同学用过的
-
->* Pair.create()  这个类 可以用来存储存储一”组”数据。但不是key和value的关系。
+>* Pair 这个类 可以用来存储存储一”组”数据。但不是key和value的关系。
 
 >* SparseArray 目前有很多地方从性能优化方说使用SparseArray来替换hashMap，来节省内存，提高性能。
 
 >* Linkify.addLinks() 这个类可以更方便的为文本添加超链接。
-
->* android.text.Spanned
 
 >* ThumbnailUtils 这个类主要是用来处理缩略图相关的，有过这方面需求的，应该是用过这个类的。
 
