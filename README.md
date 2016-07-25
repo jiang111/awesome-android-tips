@@ -326,35 +326,9 @@ public static Bitmap blurBitmap(Context context, Bitmap src, int radius) {
     }
 ```
 
->* 将view转换成bitmap
-```java
-public void captureView(){
-    int height = getStatusHeight(mContext);
-    Bitmap bmp1 = Bitmap.createBitmap(tempView.getWidth(), tempView.getHeight(),
-                        Bitmap.Config.ARGB_8888);
-                Canvas canvas = new Canvas(bmp1);
-                tempView.draw(canvas);
-                int currentapiVersion = android.os.Build.VERSION.SDK_INT;
-                Bitmap bmp2 = null;
-                /**
-                 * 如果版本是5.0以上,要去掉状态栏
-                 */
-                if (currentapiVersion >= Build.VERSION_CODES.LOLLIPOP) {
-                    bmp2 = Bitmap.createBitmap(bmp1, 0, height, bmp1.getWidth(), bmp1.getHeight() - height);
-                } else {
-                    bmp2 = Bitmap.createBitmap(bmp1);
-                }
-                bmp1.recycle();
-}
-private int getStatusHeight(Context ct) {
-        int result = 0;
-        int resourceId = ct.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-            result = ct.getResources().getDimensionPixelSize(resourceId);
-        }
-        return result;
-    }
-```
+>* 如果想把一个view保存为Bitmap，正常情况下用第一种方法就可以了，但是如果是ScrollView，则必须采用第二种方法。
+![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/capture_view_1.jpg)
+![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/capture_view_2.jpg)
 
 >* 当Activity LauncherMode 为singleTask singleInstance时,使用startActivityForResult会立马返回，不能正常调用。具体请看http://www.360doc.com/content/15/0123/14/12928831_443085580.shtml
 
