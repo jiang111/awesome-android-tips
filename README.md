@@ -326,7 +326,7 @@ public static Bitmap blurBitmap(Context context, Bitmap src, int radius) {
     }
 ```
 
->* 如果想把一个view保存为Bitmap，正常情况下用第一种方法就可以了，但是如果是ScrollView，则必须采用第二种方法。
+>* 如果想把一个view保存为Bitmap，正常情况下用第一种方法就可以了，但是如果是ScrollView，则必须采用第二种方法。 <br />
 ![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/capture_view_1.jpg)
 ![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/capture_view_2.jpg)
 
