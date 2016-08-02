@@ -410,6 +410,7 @@ git commit -m 'update .gitignore'
 
 <img src="https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/multy_task1.jpg" width = "50%" height="300px" /><img src="https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/multy_task2.jpg" width = "50%"  height="300px"/>
 
+>* 当app的theme用的是NoActionBar,但是在layout中仍然用到toolbar的时候,不要在style文件中加fitsSystemWindows属性,而是在用到toolbar的layout最外层加fitsSystemWindows,否则当你使用EditText,在小米手机上长按EditText调出系统粘贴功能的时候,粘贴的layout的布局会错位.
 
 ####摘自如下地址(部分)：
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
