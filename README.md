@@ -37,7 +37,6 @@ English_Version:https://github.com/jiang111/awesome-android-tips/blob/master/Eng
 
 >* DateUtils.formatDateTime()) 这个方法可以输出相应格式化的时间或者日期
 
->* Formatter.formatFileSize() 这个方法会格式化数据的大小，根据输入的字节大小，返回 B KB MB GB 等等（最大支持到 PB）。当然要注意的是输入的最大值是 Long.MAX_VALUE.
 
 >* Pair 这个类 可以用来存储存储一”组”数据。但不是key和value的关系。
 
@@ -45,7 +44,7 @@ English_Version:https://github.com/jiang111/awesome-android-tips/blob/master/Eng
 
 >* Linkify.addLinks() 这个类可以更方便的为文本添加超链接。
 
->* ThumbnailUtils 这个类主要是用来处理缩略图相关的，有过这方面需求的，应该是用过这个类的。
+>* android.media.ThumbnailUtils这个类主要是用来处理缩略图相关的工作,比如:用来获取媒体（图片、视频）的缩略图;
 
 >* Bitmap.extractAlpha ();返回一个新的Bitmap，capture原始图片的alpha值。有的时候我们需要动态的修改一个元素的背景图片又不希望使用多张图片的时候，通过这个方法，结合Canvas和Paint可以动态的修改一个纯色Bitmap的颜色。
 
@@ -98,13 +97,11 @@ public static int randInt(int min, int max) {
 }
 ```
 
-
 >* 如果子类实现Serializable接口而父类未实现时，父类不会被序列化，但此时父类必须有个无参构造方法，否则会抛InvalidClassException异常。
 
 >* transient关键字修饰变量可以限制序列化。
 
 >* 当使用JakeWharton的TabPageIndicator时，如果需要先做一些耗时的操作，然后再展示TabPageIndicator的话，需要先设置mIndirector.setVisibility(View.GONE);然后耗时任务结束以后再mIndirector.setVisibility(View.VISIBLE);否则会报错
-
 
 >* 类继承之间的调用顺序 父类static成员 -> 子类static成员 -> 父类普通成员初始化和初始化块 -> 父类构造方法 -> 子类普通成员初始化和初始化块 -> 子类构造方法
 
@@ -145,7 +142,6 @@ public static int randInt(int min, int max) {
 
 >* android listview中的消息被软键盘遮挡了,在设置listview的时候加上android:transcriptMode="normal"就好了
 
-
 >* TextUtils 是一个非常好用的工具类，把 List<String> 转成字符串，逗号分隔，逗号分隔的 String 字符串，切割成 List<String> ，分别可以用 TextUtils 的 join 和 split 方法。如果要对 List 去重，则可以用 Collection 的 frequency 方法。
 
 >* 在activity中调用 moveTaskToBack (boolean nonRoot)方法即可将activity 退到后台，注意不是finish()退出。
@@ -165,10 +161,6 @@ public static int randInt(int min, int max) {
 >* view的isShown方法，只有当view本身以及它的所有祖先们都是visible时，isShown（）才返回TRUE。而平常我们调用if(view.getVisibility() == View.VISIBLE)只是对view本身而不对祖先的可见性进行判断。
 
 >* Arrays类中的一系列关于数组操作的工具方法：binarySearch()，asList()，equals()，sort()，toString()，copyOfRange()等；Collections类中的一系列关于集合操作的工具方法：sort()，reverse()等；
-
->* android.text.format.Formatter类中formatFileSize(Context, long)方法，用来格式化文件Size（B → KB → MB → GB）；
-
->* android.media.ThumbnailUtils类，用来获取媒体（图片、视频）缩略图；
 
 >* TextView类中的append(CharSequence)方法，添加文本。一些特殊文本直接用+连接会变成String；
 
@@ -236,7 +228,7 @@ public static int randInt(int min, int max) {
 
 >* PageTransformer用于定义ViewPager页面切换时的动画效果（淡入淡出，放大缩小神马的…）官方有例子，直接看吧。
 
->* Formatter.formatFileSize根据文件大小自动转为以KB, MB, GB为单位的工具类。想想以前都是自己计算的…
+>* Formatter.formatFileSize() 这个方法会格式化数据的大小，根据输入的字节大小，返回 B KB MB GB 等等（最大支持到 PB）。当然要注意的是输入的最大值是 Long.MAX_VALUE.
 
 >* Activity.recreate重新创建Activity。有什么用呢？可以在程序更换主题后，立马刷新当前Activity，而不会有明显的重启Activity的动画。
 
