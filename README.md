@@ -404,6 +404,8 @@ git commit -m 'update .gitignore'
 
 >* 当app的theme用的是NoActionBar,但是在layout中仍然用到toolbar的时候,不要在style文件中加fitsSystemWindows属性,而是在用到toolbar的layout最外层加fitsSystemWindows,否则当你使用EditText,在小米手机上长按EditText调出系统粘贴功能的时候,粘贴的layout的布局会错位.
 
+>* 当WebView与ScrollView嵌套使用,并且WebView有字体放大缩小的功能时,当切换webview的字体后,webview的高度并不能很好的计算出来,这时候可以通过注入的方式,让js算出高度,经测试,这样是最可靠的,代码地址:http://blog.csdn.net/jys1115/article/details/43525979
+
 ####摘自如下地址(部分)：
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
