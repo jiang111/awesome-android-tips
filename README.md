@@ -406,6 +406,13 @@ git commit -m 'update .gitignore'
 
 >* 当WebView与ScrollView嵌套使用,并且WebView有字体放大缩小的功能时,当切换webview的字体后,webview的高度并不能很好的计算出来,这时候可以通过注入的方式,让js算出高度,经测试,这样是最可靠的,代码地址:http://blog.csdn.net/jys1115/article/details/43525979
 
+>* Context类中的createPackageContext(packageName, flags)方法，可用来获取指定包名应用程序的Context对象。
+
+>* TextView类的setKeyListener(KeyListener)方法；
+其中DigitsKeyListener类，使用getInstance(String accepted)方法即可指定EditText可输入字符集；
+
+>* View类中的getLocationInWindow(int[])方法和getLocationOnScreen(int[])方法，获取View在窗口/屏幕中的位置；
+
 ####摘自如下地址(部分)：
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
