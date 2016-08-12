@@ -460,6 +460,16 @@ If your application has logically independent parts, or you want to display side
 Use manifest attribute (static) or intent flags (dynamic) can achieve this
 <img src="https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/multy_task1.jpg" width = "50%" height="300px" /><img src="https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/multy_task2.jpg" width = "50%"  height="300px"/>
 
+>* When using the app's theme is NoActionBar, but is still used in the layout toolbar, do not add fitsSystemWindows property in style file, but in the use of the toolbar layout outermost plus fitsSystemWindows, or when you use EditText, in long press to bring up the system EditText paste function on millet phone when pasted layout layout will be misplaced.
+
+>* When WebView and ScrollView nest, and WebView have font zoom function, when after switching fonts webview, webview height and not well calculated, this time by way of injection, let js height calculated by test, this is the most reliable code address: http: //blog.csdn.net/jys1115/article/details/43525979
+
+>* Context class createPackageContext (packageName, flags) method can be used to obtain the specified package name for the application Context object.
+
+>* TextView.class has a method called setKeyListener (KeyListener) ; wherein DigitsKeyListener class, use getInstance (String accepted) method to specify the EditText can input character set;
+
+>* View.class has methods called getLocationInWindow (int []) & getLocationOnScreen (int []) ,They can get View position in the window / screen;
+
 ####From the following address :( portion of the address)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
@@ -473,16 +483,6 @@ Use manifest attribute (static) or intent flags (dynamic) can achieve this
 >* https://zhuanlan.zhihu.com/p/20309921
 >* http://www.pfeng.org/archives/840#123-tsina-1-92600-1bb80a0982f5c2ea1fcaf67d7fdce2f1
 
-####Recommand
->* 更好的管理线程间跳转的库 https://github.com/jiang111/ObservableScheduler
->* 收集Android你不知道的那些小技巧:https://github.com/jiang111/awesome-android-tips
->* 收集Android studio 常用的插件,请看这里:https://github.com/jiang111/awesome-androidstudio-plugins
->* 收集程序员必备的那些Chrome插件: https://github.com/jiang111/chrome-plugin-recommand
->* 通过RecyclerView实现的联系人: https://github.com/jiang111/IndexRecyclerView
->* 用于学习RxJava操作符的APP: https://github.com/jiang111/RxJavaApp
->* 展示注册进度的view: https://github.com/jiang111/ProgressView
->* 可定制的ViewPagerIndicator: https://github.com/jiang111/ScalableTabIndicator
->* 通过viewpager的滑动来对fragment内的元素进行动画操作: https://github.com/jiang111/ViewPagerTransformer
 
 ### License
 
