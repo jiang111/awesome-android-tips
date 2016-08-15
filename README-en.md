@@ -175,7 +175,7 @@ Some special text directly connected will become String;
 
 >* apache package offers a series of jar: commons-lang.jar, commons-collections.jar, commons-beanutils.jar etc., there may be many ways you have used dozens of hundreds of lines of code before, but perhaps efficiency much worse, such as: ArrayUtils, StringUtils ......;
 
->* ActivityLifecycleCallbacks interface for monitoring the status of each change in the Application Activity class!http://mp.weixin.qq.com/s?__biz=MzA3ODkzNzM3NQ==&mid=401277907&idx=1&sn=0b2246f5178292596fc3a8295283359c#rd
+>* ActivityLifecycleCallbacks interface for monitoring the status of each change in the Application Activity class!  [article](http://mp.weixin.qq.com/s?__biz=MzA3ODkzNzM3NQ==&mid=401277907&idx=1&sn=0b2246f5178292596fc3a8295283359c#rd)
 
 >* ActionBar.hide () /. Show () As the name suggests, hide and show ActionBar, gracefully between full screen and with Actionbar conversion.
 
@@ -470,6 +470,10 @@ Use manifest attribute (static) or intent flags (dynamic) can achieve this
 
 >* View.class has methods called getLocationInWindow (int []) & getLocationOnScreen (int []) ,They can get View position in the window / screen;
 
+>* Context.getCacheDir() - Use the cache dir for caching data. Simple enough but some don't know it exists.
+
+>* StaticLayout - Useful for measuring text that you're about to render into a custom View.
+
 ####From the following address :( portion of the address)
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
@@ -482,7 +486,7 @@ Use manifest attribute (static) or intent flags (dynamic) can achieve this
 >* http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0504/4205.html
 >* https://zhuanlan.zhihu.com/p/20309921
 >* http://www.pfeng.org/archives/840#123-tsina-1-92600-1bb80a0982f5c2ea1fcaf67d7fdce2f1
-
+>* http://blog.danlew.net/2014/03/30/android-tips-round-up-part-1/
 
 ### License
 
