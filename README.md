@@ -176,7 +176,7 @@ public static int randInt(int min, int max) {
 
 >* apache提供的一系列jar包：commons-lang.jar，commons-collections.jar，commons-beanutils.jar等，里面很多方法可能是你曾经用几十几百行代码实现过的，但是执行效率或许要差很多，比如：ArrayUtils，StringUtils……；
 
->* ActivityLifecycleCallbacks接口，用于在Application类中监听各Activity的状态变化 ![阅读地址]{http://mp.weixin.qq.com/s?__biz=MzA3ODkzNzM3NQ==&mid=401277907&idx=1&sn=0b2246f5178292596fc3a8295283359c#rd}
+>* ActivityLifecycleCallbacks接口，用于在Application类中监听各Activity的状态变化 [阅读地址点我](http://mp.weixin.qq.com/s?__biz=MzA3ODkzNzM3NQ==&mid=401277907&idx=1&sn=0b2246f5178292596fc3a8295283359c#rd)
 
 >* ActionBar.hide()/.show() 顾名思义，隐藏和显示ActionBar，可以优雅地在全屏和带Actionbar之间转换。
 
