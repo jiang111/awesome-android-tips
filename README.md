@@ -413,6 +413,10 @@ git commit -m 'update .gitignore'
 
 >* View类中的getLocationInWindow(int[])方法和getLocationOnScreen(int[])方法，获取View在窗口/屏幕中的位置；
 
+>* Context.getCacheDir() - 可以获取到app默认的缓存路径。
+
+>* StaticLayout 在自定义控件绘制文本的时候很有用。
+
 ####摘自如下地址(部分)：
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
@@ -425,7 +429,7 @@ git commit -m 'update .gitignore'
 >* http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0504/4205.html
 >* https://zhuanlan.zhihu.com/p/20309921
 >* http://www.pfeng.org/archives/840#123-tsina-1-92600-1bb80a0982f5c2ea1fcaf67d7fdce2f1
-
+>* http://blog.danlew.net/2014/03/30/android-tips-round-up-part-1/
 
 ### License
 
