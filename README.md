@@ -166,7 +166,7 @@ public static int randInt(int min, int max) {
 
 >* System类中的arraycopy(src, srcPos, dest, destPos, length)方法，用来copy数组；
 
->* Fragment类中的onHiddenChanged(boolean)方法，使用FragmentTransaction中的hide()，show()时貌似Fragment的其它生命周期方法都不会被调用，太坑爹！
+>* Fragment类中的onHiddenChanged(boolean)方法，使用FragmentTransaction中的hide()，show()时只会调用Fragment中的show和hidden状态,其他生命周期不会调用。
 
 >* Activity类中的onWindowFocusChanged(boolean)，onNewIntent(intent)等回调方法；
 
