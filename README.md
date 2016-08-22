@@ -417,6 +417,8 @@ git commit -m 'update .gitignore'
 
 >* StaticLayout 在自定义控件绘制文本的时候很有用。
 
+>* Android中的四大组件千万不要通过new的方式创建出来。
+
 ####摘自如下地址(部分)：
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
