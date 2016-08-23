@@ -427,9 +427,8 @@ android {
             applicationIdSuffix '.debug'
             versionNameSuffix '-DEBUG'
         }
-
         release {
-            // ...
+            //...
         }
     }
 }
