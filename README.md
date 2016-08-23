@@ -419,6 +419,23 @@ git commit -m 'update .gitignore'
 
 >* Android中的四大组件千万不要通过new的方式创建出来。
 
+>* 测试app的时候,我们大都想要将debug和release版本同时安装到手机里,可以通过在gradle中修改applicationid来实现:
+```
+android {
+    buildTypes {
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-DEBUG'
+        }
+
+        release {
+            // ...
+        }
+    }
+}
+```
+
+
 ####摘自如下地址(部分)：
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
