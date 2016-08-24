@@ -434,6 +434,7 @@ android {
 }
 ```
 
+>* 在大多数的登陆界面中，都提供了用户是否让密码可见的选项，Support Library 24.2.0 提供了官方的实现，TextInputLayout 中添加了 passwordToggleEnabled 属性来开启此功能，并且可以通过 passwordToggleDrawable 设置图标。(摘自:Android笔记的微博)
 
 ####摘自如下地址(部分)：
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
