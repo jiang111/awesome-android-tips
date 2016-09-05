@@ -436,6 +436,14 @@ android {
 
 >* 在大多数的登陆界面中，都提供了用户是否让密码可见的选项，Support Library 24.2.0 提供了官方的实现，TextInputLayout 中添加了 passwordToggleEnabled 属性来开启此功能，并且可以通过 passwordToggleDrawable 设置图标。(摘自:Android笔记的微博)
 
+>* 同样,在Support Library 24.2.0中增加RecyclerView 在快速滚动时的回调接口,SnapHelper是官方的一个实现OnFlingListener 的 一个抽象类,LinearSnapHelper 则是一个完整的实现.LinearSnapHelper默认实现的功能是类似ViewPager,在滚动结束后,会选择列表某一条居中展示.例如:
+```
+    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+    recyclerView.setLayoutManager(linearLayoutManager);
+    LinearSnapHelper snapHelper = new LinearSnapHelper();
+    snapHelper.attachToRecyclerView(recyclerView);
+```
+
 ####摘自如下地址(部分)：
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
 >* http://oakzmm.com/2015/08/11/cool-Android-api-2/
