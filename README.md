@@ -384,13 +384,13 @@ git commit -m 'update .gitignore'
 ```
 这样,控件的宽高默认都是wrap_content样式啦。
 
->* 在style中写的样式通过视同parent标签来扩展你的样式,这样更高效。
+>* 在style中写的样式通过视同parent标签来扩展你的样式,这样更高效,这里官方的建议是，只有Android自带的style才用parent标签，如果是自定义的style，直接用.符号来连接就行。如Fill.Height。
 ```
 <style name="Fill">
     <item name="android:layout_width">fill_parent</item>
     <item name="android:layout_height">fill_parent</item>
 </style>
-<style name="Fill.Height" parent="@style/Fill">
+<style name="Fill.Height" >
     <item name="android:orientation">vertical</item>
 </style>
 ```
