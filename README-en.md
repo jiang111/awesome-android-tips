@@ -474,20 +474,18 @@ Use manifest attribute (static) or intent flags (dynamic) can achieve this
 
 >* StaticLayout - Useful for measuring text that you're about to render into a custom View.
 
-####From the following address :( portion of the address)
->* http://oakzmm.com/2015/08/04/cool-Android-api/
->* http://oakzmm.com/2015/08/11/cool-Android-api-2/
->* http://weibo.com/liangfeizc?from=feed&loc=nickname
->* http://zhuanlan.zhihu.com/zmywly8866/20309921
->* http://www.zhihu.com/question/33636939
->* http://gold.xitu.io/entry/56c2b9b779bc4400540894ac
->* https://www.zhihu.com/question/33636939/answer/57239990?group_id=612750833369153536
->* http://mp.weixin.qq.com/s?__biz=MzA4MTM2MjE2MA==&mid=2650836293&idx=3&sn=2624066ababb6b613634015f54ea19b6&scene=0#wechat_redirect
->* http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0504/4205.html
->* https://zhuanlan.zhihu.com/p/20309921
->* http://www.pfeng.org/archives/840#123-tsina-1-92600-1bb80a0982f5c2ea1fcaf67d7fdce2f1
->* http://blog.danlew.net/2014/03/30/android-tips-round-up-part-1/
+>* Recommended data-structure :
+```
+ArrayMap<K,V> in place of HashMap<K,V>
+ArraySet<K,V> in place of HashSet<K,V>
+SparseArray<V> in place of HashMap<Integer,V>
+SparseBooleanArray in place of HashMap<Integer,Boolean>
+SparseIntArray in place of HashMap<Integer,Integer>
+SparseLongArray in place of HashMap<Integer,Long>
+LongSparseArray<V> in place of HashMap<Long,V>
+```
 
+####From [the following address](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 ### License
 
     Copyright 2016 NewTab
