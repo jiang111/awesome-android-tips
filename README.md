@@ -79,12 +79,9 @@ English_Version:https://github.com/jiang111/awesome-android-tips/blob/master/REA
 >* 遍历HashMap的最佳方法
 ```java
 public static void printMap(Map mp) {
-    Iterator it = mp.entrySet().iterator();
-    while (it.hasNext()) {
-        Map.Entry pair = (Map.Entry)it.next();
-        System.out.println(pair.getKey() + " = " + pair.getValue());
-        it.remove(); // avoids a ConcurrentModificationException
-    }
+    for (Map.Entry m : mp.entrySet()) {
+            System.out.println(m.getKey() + ":" + m.getValue());
+        }
 }
 ```
 
