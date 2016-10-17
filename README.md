@@ -452,6 +452,11 @@ SparseLongArray in place of HashMap<Integer,Long>
 LongSparseArray<V> in place of HashMap<Long,V>
 ```
 
+>* 生成GUID(由于java中只能生成UUID,所以这里要转换一下):
+```
+    return UUID.randomUUID().toString().toUpperCase().replaceAll("-", "");
+```
+
 ####摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
 
