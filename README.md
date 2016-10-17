@@ -444,15 +444,16 @@ android {
     snapHelper.attachToRecyclerView(recyclerView);
 ```
 
->* Android中推荐使用的数据结构 : <br />
-ArrayMap<K,V> in place of HashMap<K,V> <br />
-ArraySet<K,V> in place of HashSet<K,V>  <br />
-SparseArray<V> in place of HashMap<Integer,V> <br />
-SparseBooleanArray in place of HashMap<Integer,Boolean> <br />
-SparseIntArray in place of HashMap<Integer,Integer>  <br />
-SparseLongArray in place of HashMap<Integer,Long>  <br />
-LongSparseArray<V> in place of HashMap<Long,V> <br />
-
+>* Android中推荐使用的数据结构 :
+```
+ArrayMap<K,V> in place of HashMap<K,V> 
+ArraySet<K,V> in place of HashSet<K,V> 
+SparseArray<V> in place of HashMap<Integer,V> 
+SparseBooleanArray in place of HashMap<Integer,Boolean> 
+SparseIntArray in place of HashMap<Integer,Integer>  
+SparseLongArray in place of HashMap<Integer,Long>  
+LongSparseArray<V> in place of HashMap<Long,V>
+```
 
 ####摘自如下地址(部分)：
 >* http://oakzmm.com/2015/08/04/cool-Android-api/
