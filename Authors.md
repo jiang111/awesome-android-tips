@@ -11,3 +11,4 @@
 >* http://www.pfeng.org/archives/840#123-tsina-1-92600-1bb80a0982f5c2ea1fcaf67d7fdce2f1
 >* http://blog.danlew.net/2014/03/30/android-tips-round-up-part-1/
 >* https://medium.com/@amitshekhar/android-app-optimization-using-arraymap-and-sparsearray-f2b4e2e3dc47#.x4rcz2a89
+>* http://droidyue.com/blog/2016/10/24/notes-for-an-android-qa/
