@@ -457,6 +457,19 @@ LongSparseArray<V> in place of HashMap<Long,V>
     return UUID.randomUUID().toString().toUpperCase().replaceAll("-", "");
 ```
 
+>* 业务场景：需要定时后台扫描数据库，上传本地照片至云端，定时任务采用何种模式: <br />
+1.Handler或者Timer定时一般为秒级别的任务,Timer会启动额外线程，而Handler可以不用。<br /> 
+2.无论是Handler还是Timer都需要依赖于进程存活 <br /> 
+3.利用Handler实现定时任务的类:HandlerTimer <br />
+4.如果时间较长，则需要使用AlarmManager <br />
+5.另外，我们对于这种业务应该优先考虑是否可以基于事件通知。<br /> 
+6.如果是加入媒体库的文件，我们可以使用registerContentObserver监听媒体库文件变化。
+
+>* 把Activity作为参数传给一个静态方法,会影响这个Activity的正常销毁吗?<br /> 
+1.内存泄露与方法是否是静态与否无关，与内部的方法体实现有关系。<br /> 
+2.内存泄露可以简单理解成：生命周期长的对象不正确持有了持有了生命周期短的对象，导致生命周期短的对象无法回收。<br /> 
+3.比如Activity实例被Application对象持有，Activity实例被静态变量持有。<br /> 
+
 ####摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
 
