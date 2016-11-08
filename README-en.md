@@ -1,5 +1,6 @@
 
-awesome-android-tips
+![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/title.png) <br /><br />
+[![jiang111/image](https://jiang111.github.io/images/awesome.svg)](https://github.com/jiang111/awesome-android-tips)  <br />
 
 中文版:https://github.com/jiang111/awesome-android-tips <br />
 
