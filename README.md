@@ -1,7 +1,6 @@
 ![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/title.png) <br /><br />
 [![jiang111/image](https://jiang111.github.io/images/awesome.svg)](https://github.com/jiang111/awesome-android-tips)  <br />
 
-值得收藏的文章 ->_-> :https://github.com/jiang111/awesome-android-articles <br />
 值得收藏的AS插件 ->_->:https://github.com/jiang111/awesome-androidstudio-plugins <br />
 
 这里收集了大家常用的一些Android代码,持续更新中,内容来自自己的平时积累和网络上看到的文章，部分原文地址在最下方。如有错误欢迎指正,如有侵权,请联系我删除。里面可能会有重复内容,请忽略或者提醒我删除。<br /><br />
