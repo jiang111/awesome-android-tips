@@ -329,11 +329,13 @@ public static Bitmap blurBitmap(Context context, Bitmap src, int radius) {
 
 * android中的序列化官方推荐Parceble,其实Parceble最好用于内存之间数据的交换,如果要把数据写入硬盘的话,推荐实现Serializable
 
-* tools标签可以很好的帮助开发者实时预览xml的效果,并且运行以后tools标签的内容不会展示出来.例如:
+* tools标签可以很好的帮助开发者实时预览xml的效果,通过tools:background可以预览控件所占的控件,tools:visibility可以把一个gone的控件在预览的时候展示出来,并且运行以后tools标签的内容不会展示出来.例如:
 ```xml
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    tools:background="#FF00FF"
+    tools:visibility="visible"
     tools:text="这段话只在预览时能看到,运行以后就看不到了" />
 ```
 
