@@ -474,6 +474,8 @@ LongSparseArray<V> in place of HashMap<Long,V>
 2.内存泄露可以简单理解成：生命周期长的对象不正确持有了持有了生命周期短的对象，导致生命周期短的对象无法回收。
 3.比如Activity实例被Application对象持有，Activity实例被静态变量持有。
 
+* 在assert文件夹下存放单个文件的大小不能超过1M，如果读取超过1M的文件会报 "Data exceeds UNCOMPRESS_DATA_MAX (1314625 vs 1048576)" 的IOException。如果一定要存储，可以分割文件，再去合并文件
+
 ####摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
 
