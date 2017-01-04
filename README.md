@@ -476,6 +476,26 @@ LongSparseArray<V> in place of HashMap<Long,V>
 
 * 在assert文件夹下存放单个文件的大小不能超过1M，如果读取超过1M的文件会报 "Data exceeds UNCOMPRESS_DATA_MAX (1314625 vs 1048576)" 的IOException。如果一定要存储，可以分割文件，再去合并文件
 
+* 在Android library中不能使用switch-case语句访问资源ID，因为case分支后面跟的参数必须是常数，而library中的每一个资源ID都没有被声明为final。
+
+* 当前Activity的onPause方法执行结束后才会执行下一个Activity的onCreate方法，所以在onPause方法中不适合做耗时较长的工作，这会影响到页面之间的跳转效率；
+
+* 不要通过Bundle传递大块的数据，否则会报TransactionTooLargeException异常
+
+* （AnimationDrawable在Android5.0及以上的版本已有明显的优化）尽量不要使用AnimationDrawable，它在初始化的时候就将所有图片加载到内存中，特别占内存，并且还不能释放，释放之后下次进入再次加载时会报错；
+
+* .9图不能通过tinypng压缩，不然会有问题；
+
+* genymotion模拟器快是因为它是基于x86架构的，如果你的应用中用到了so，但没有x86架构的so，只能放弃使用它；Android Studio的模拟器也一样；
+
+* 使用Toast时，建议定义一个全局的Toast对象，这样可以避免连续显示Toast时不能取消上一次Toast消息的情况（如果你有连续弹出Toast的情况，避免使用Toast.makeText）；
+
+* 尽量避免给window和Activity同时都设置了背景，这样会造成过渡绘制，可以通过在给Activity设置主题时，去掉windowBackground背景的方式减少一层过渡绘制，有时候为了避免进入Activity时会黑屏或者白屏（和主题有关），会在给Activity设置主题的时候给window设置背景，如果这种情况下给Activity也设置了背景，是会增加一倍内存的：
+```
+<item name="android:windowBackground">@null</item>
+```
+
+
 ####摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
 
