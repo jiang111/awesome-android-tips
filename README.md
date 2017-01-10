@@ -495,6 +495,19 @@ LongSparseArray<V> in place of HashMap<Long,V>
 <item name="android:windowBackground">@null</item>
 ```
 
+* 设置中更改字体为特大之类的会影响到app的字体样式，解决方法有: 1.将所有字体使用的单位换成dp，不再使用sp.这样不是很靠谱，并不是所有人都能做到。
+2.
+```
+ Configuration configuration = getResources().getConfiguration();
+  configuration.fontScale = (float) 1; 
+  //0.85 小, 1 标准大小, 1.15 大，1.3 超大 ，1.45 特大 
+  DisplayMetrics metrics = new DisplayMetrics();
+  getWindowManager().getDefaultDisplay().getMetrics(metrics); 
+  metrics.scaledDensity = configuration.fontScale * metrics.density;
+  getBaseContext().getResources().updateConfiguration(configuration, metrics); 
+  //（ps:dialog popupwindow 除外,这两种需要在控件中重新设置fontScale)
+```
+
 
 ####摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
