@@ -508,6 +508,27 @@ LongSparseArray<V> in place of HashMap<Long,V>
   //（ps:dialog popupwindow 除外,这两种需要在控件中重新设置fontScale)
 ```
 
+* Android中新引入的替代枚举的注解有IntDef和StringDef,这里以IntDef做例子说明一下.
+```
+public class Colors {
+    @IntDef({RED, GREEN, YELLOW})
+    //声明必要的int常量,使用@IntDef修饰LightColors,参数设置为待枚举的集合
+    @Retention(RetentionPolicy.SOURCE)
+    //使用@Retention(RetentionPolicy.SOURCE)指定注解仅存在与源码中,不加入到class文件中
+    public @interface LightColors{}
+    //声明一个注解为LightColors
+    public static final int RED = 0;
+    public static final int GREEN = 1;
+    public static final int YELLOW = 2;
+}
+//用法
+private void setColor(@Colors.LightColors int color) {
+        Log.d("MainActivity", "setColor color=" + color);
+}
+//调用的该方法的时候
+setColor(Colors.GREEN);
+```
+
 
 ####摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
