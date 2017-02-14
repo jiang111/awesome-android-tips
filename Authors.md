@@ -12,3 +12,4 @@
 >* http://blog.danlew.net/2014/03/30/android-tips-round-up-part-1/
 >* https://medium.com/@amitshekhar/android-app-optimization-using-arraymap-and-sparsearray-f2b4e2e3dc47#.x4rcz2a89
 >* http://droidyue.com/blog/2016/10/24/notes-for-an-android-qa/
+>* https://zhuanlan.zhihu.com/p/25120433
