@@ -529,6 +529,15 @@ private void setColor(@Colors.LightColors int color) {
 setColor(Colors.GREEN);
 ```
 
+* PathInterpolatorCompat 很方便的使用它来创建各种插值曲线，举个非常简单的例子：
+```
+Path path = new Path();
+path.cubicTo(0.2f, 0f, 0.1f, 1f, 0.5f, 1f);
+path.lineTo(1f, 1f);
+ObjectAnimator animator = ObjectAnimator.ofFloat(view, View.TRANSLATION_X, 500);
+animator.setInterpolator(PathInterpolatorCompat.create(path));
+animator.start();
+```
 
 ####摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
