@@ -539,6 +539,21 @@ animator.setInterpolator(PathInterpolatorCompat.create(path));
 animator.start();
 ```
 
+* 检测当前网络能否访问远程服务器(国内通过ping百度来检测)
+```
+public static boolean isNetWorkAvailable(final Context context) {
+        try {
+            Runtime runtime = Runtime.getRuntime();
+            Process pingProcess = runtime.exec("/system/bin/ping -c 1 www.baidu.com");
+            int exitCode = pingProcess.waitFor(); //0 代表连通，2代表不通
+            return (exitCode == 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+```
+
 ####摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
 
