@@ -46,7 +46,11 @@
 
 * Linkify.addLinks() 这个类可以更方便的为文本添加超链接。
 
-* android.media.ThumbnailUtils这个类主要是用来处理缩略图相关的工作,比如:用来获取媒体（图片、视频）的缩略图;
+* android.media.ThumbnailUtils这个类主要是用来处理缩略图相关的工作,比如:用来获取媒体（图片、视频）的缩略图
+```
+createVideoThumbnail(String filePath, int kind)
+extractThumbnail(Bitmap source, int width, int height)
+```
 
 * Bitmap.extractAlpha ();返回一个新的Bitmap，capture原始图片的alpha值。有的时候我们需要动态的修改一个元素的背景图片又不希望使用多张图片的时候，通过这个方法，结合Canvas和Paint可以动态的修改一个纯色Bitmap的颜色。
 
@@ -553,6 +557,24 @@ public static boolean isNetWorkAvailable(final Context context) {
         return false;
     }
 ```
+
+
+* 拦截系统返回键(onBackPressed())，使App不退出，而是进入后台运行
+```
+@Override
+  public void onBackPressed() {
+    Intent launcherIntent = new Intent(Intent.ACTION_MAIN);
+    launcherIntent.addCategory(Intent.CATEGORY_HOME);
+    startActivity(launcherIntent);
+  }
+```
+
+* view.performClick() 自动调用 View 点击事件。通常按钮等控件只有在用户点击时才能触发其点击事件，该方法可以由某些特殊条件触发模拟用户点击行为。类似的还有 performLongClick() 方法。
+
+* Linkify.addLinks() 通过 android:autoLink 属性可以为其添加诸如 web、phone 等固定模版的超链接点击事件。但毕竟系统模版有限，而利用 Linkify.addLinks() 方法可以添加一些应用内自定义模版，比如新浪微博中的 "@XXX" 格式的超链接跳转等，都可以通过自定义正则表达式来匹配处理。
+
+* getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE) 设置安全窗口，禁用系统截屏。防止 App 中的一些界面被截屏，并显示在其他设备中造成信息泄漏。（常见手机设备系统截屏操作方式为：同时按下电源键和音量键。）
+
 
 ####摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
