@@ -563,9 +563,7 @@ public static boolean isNetWorkAvailable(final Context context) {
 ```
 @Override
   public void onBackPressed() {
-    Intent launcherIntent = new Intent(Intent.ACTION_MAIN);
-    launcherIntent.addCategory(Intent.CATEGORY_HOME);
-    startActivity(launcherIntent);
+    moveTaskToBack(false);
   }
 ```
 
