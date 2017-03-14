@@ -13,3 +13,4 @@
 >* https://medium.com/@amitshekhar/android-app-optimization-using-arraymap-and-sparsearray-f2b4e2e3dc47#.x4rcz2a89
 >* http://droidyue.com/blog/2016/10/24/notes-for-an-android-qa/
 >* https://zhuanlan.zhihu.com/p/25120433
+>* https://juejin.im/post/58c407ee44d90400698757d8
