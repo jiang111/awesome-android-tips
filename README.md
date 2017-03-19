@@ -574,8 +574,12 @@ public static boolean isNetWorkAvailable(final Context context) {
 * getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE) 设置安全窗口，禁用系统截屏。防止 App 中的一些界面被截屏，并显示在其他设备中造成信息泄漏。（常见手机设备系统截屏操作方式为：同时按下电源键和音量键。）
 
 
-####摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
+#### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
+
+### 捐赠
+如果您觉得本项目对您有帮助，欢迎请作者一杯咖啡 <br /><br />
+![](https://raw.githubusercontent.com/jiang111/RxJavaApp/master/qrcode/wechat_alipay.png)
 
 ### License
 
