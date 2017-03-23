@@ -70,7 +70,19 @@ extractThumbnail(Bitmap source, int width, int height)
 
 * Application的生命周期就是进程的生命周期。只有进程被干掉时，Application才会销毁。哪怕是没有Activity、Service在运行，Application也会存在。所以，为了减少内存压力，尽量不要在Application里面引用大对象、Context等。
 
-* getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);设置全屏方法一定要在setContentView之后
+* 设置全屏方法有2种:1.通过代码设置，2通过manifest文件设置。用代码设置全屏时app在我们应用运行后，可能会看到短暂的状态栏，然后才全屏，而第二种方法是不会有这种情况的,所以推荐第二种。
+```
+//方法1: 
+//无title   
+requestWindowFeature(Window.FEATURE_NO_TITLE);    
+getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN,WindowManager.LayoutParams. FLAG_FULLSCREEN);   
+//必须在setContentView()之前调用
+setContentView(R.layout.main);  
+//方法2:
+<activity android:name="." 
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" //全屏主题
+    android:label="@string/app_name" />
+```
 
 * viewpager 的 setCurrentItem 一定要在 setAdapter 方法之后调用才会有效果.
 
