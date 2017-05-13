@@ -1,6 +1,8 @@
 ![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/title.png) <br /><br />
 [![jiang111/image](https://jiang111.github.io/images/awesome.svg)](https://github.com/jiang111/awesome-android-tips)  <br />
 
+中文版 ->_->:https://github.com/jiang111/awesome-android-tips
+
 Worthy collection of AS plugin ->_->:https://github.com/jiang111/awesome-androidstudio-plugins <br />
 
 Here we collect some of the commonly used Android code, continuous updates, the content from their usual accumulation and see the article on the network, part of the original address at the bottom. If there is an error welcome correction, if there is infringement, please contact me to delete. There may be duplicate content, please ignore or remind me to delete. <br /> <br />
