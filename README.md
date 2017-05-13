@@ -90,9 +90,9 @@ setContentView(R.layout.main);  
 
 * TabLayout 修改字体的方法
 官方的 TabLayout 没有提供修改 TextView size 的方法，可以新建一个 style CustomTabLayoutTextAppearance 继承 TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse ，然后增加 item ，设置 android:textAllCaps 为 true ，再设置 android:textSize 为你想设置的大小。
-![](http://ww1.sinaimg.cn/large/640f03afjw1ex0t17aj67j20uk0580uf.jpg)
+![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/custom_style1.jpg)
 再在 TabLayout 的布局文件里设置 app:tabTextAppearance="@style/CustomTabLayoutTextAppearance" 即可。
-![](http://ww1.sinaimg.cn/large/640f03afjw1ex0t1gub93j20ru0a477q.jpg)
+![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/custom_style2.jpg)
 
 * 遍历HashMap的最佳方法
 ```java
