@@ -1,496 +1,601 @@
+! [] (Https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/title.png) <br /> <br />
+[! [Jiang111 / image] (https://jiang111.github.io/images/awesome.svg)] (https://github.com/jiang111/awesome-android-tips) <br />
 
-![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/title.png) <br /><br />
-[![jiang111/image](https://jiang111.github.io/images/awesome.svg)](https://github.com/jiang111/awesome-android-tips)  <br />
+Worthy collection of AS plugin -> _->: https: //github.com/jiang111/awesome-androidstudio-plugins <br />
 
-中文版:https://github.com/jiang111/awesome-android-tips <br />
+Here we collect some of the commonly used Android code, continuous updates, the content from their usual accumulation and see the article on the network, part of the original address at the bottom. If there is an error welcome correction, if there is infringement, please contact me to delete. There may be duplicate content, please ignore or remind me to delete. <br /> <br />
 
-this is some useful android tips.Most of the content by the google translation, if wrong, please correct me, thank you <br /><br />
+#! [Table of Contents] (https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/toc.png)
 
+* SetBackgroundResource (0) can remove View background color
 
-# ![Table of Contents](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/toc.png)
+* Resources.getSystem (). GetDisplayMetrics (). Density can not use the Context can also get the screen density Oh
 
+* You can implement a simple mask effect by overloading ViewGroup's dispatchDraw. For example, when you drop down, you can add a layer of mask to the contentView. Canvas.drawRect (0, mContentView.getTranslationY (), getWidth (), getHeight (), mMaskPaint);
 
-* setBackgroundResource(0) can remove the background of View
+* New out of the View can be used View.generateViewId () (API 17 above available) to generate id, the system guarantees only
 
-* Resources.getSystem().getDisplayMetrics().density can get the Screen density without the Context
+* Use GridView android: padding android: clipToPadding = "false" with the use of better Oh.
 
-* overload ViewGroup `s dispatchDraw can implement a simple 
-Mask effect ; such as: when pull 2 refresh ,we can add mask in contentView 。source code: canvas.drawRect(0, mContentView.getTranslationY(), getWidth(), getHeight(), mMaskPaint);
+* In the layout file, if only for the occupancy, you can use Space to replace View. The best thing is that Space can skip this process.
 
-* we can use view.generateViewId() to generate a unique id.(API >= 17)
+* TypedValue.applyDimension (int unit, float value, DisplayMetrics metrics) to facilitate the conversion between dp, px, and sp.
 
-*  android:padding and android:clipToPadding="false"  is very useful when we use GridView.
+* Activity.startActivities () This method is the most direct understanding of the use of intent to open multiple Activity
 
-* in layout file. use Instead of View to Space ad a placeholder is a good idea, because Spcae can skip the process ondraw 
+* TextUtils.isEmpty () Returns true if the passed String is NULL or Length is 0.
 
-* TypedValue.applyDimension(int unit, float value, DisplayMetrics metrics) is very convenient to do the conversion between dp,px,sp
+* Html.fromHtml () If you are familiar with Html, you can quickly through this method to deal with some rich text operation. Such as hyperlinks and graphic layout and other processing.
 
+* TextView.setError () Sets the text box error reminder
 
-* Activity.startActivities() can start multiple activities
+* Build.VERSION_CODES Sometimes our app needs to perform different actions according to different SDK versions
 
-* TextUtils.isEmpty() if the string is null or of length 0 ,return true
+* PhoneNumberUtils.convertKeypadLettersToDigits This method is simple and crude, will enter the letters according to the mapping on the keyboard into a number.
 
-* Html.fromHtml() is very convenient to deal with some rich text manipulation
+* ArgbEvaluator ArgbEvaluator.evaluate (float fraction, Object startValue, Object endValue); According to a starting color value and an end color value and an offset to generate a new color, the minutes are similar to the bottom of the WeChat.
 
-* TextView.setError() can set a error reminder  with text box
+* ValueAnimator.reverse () smooth cancellation of the animation effect
 
-* use Build.VERSION_CODES can obtain various versions of android in version_code
-
-* PhoneNumberUtils.convertKeypadLettersToDigits ,Enter the letters on the keyboard according to the mapping conversion to digital.
-
-* ArgbEvaluator ArgbEvaluator.evaluate(float fraction, Object startValue, Object endValue); Generate a new color based on the color values of a starting and an ending color value and an offset quickly.
-
-* ValueAnimator.reverse(); cancel animation smoothly.
-
-* DateUtils.formatDateTime()); Corresponding output formatted time or date.
-
-* Formatter.formatFileSize(); The size of the formatted data, based on the input size in bytes, returns B KB MB GB, etc. (maximum support to PB). It is noted that the maximum value of the input is Long.MAX_VALUE.
-
-* Pair; this class can be used to store to store a "set" of data. But not the relationship between the key and value.
-
-* Instead of HashMap to SparseArray can Save memory and improve performance.
-
-* Linkify.addLinks(); Easily add hyperlinks to text.
-
-* ThumbnailUtils; This class is mainly used to deal with associated thumbnails
-
-* Bitmap.extractAlpha ();Returns a new Bitmap, capture the original image alpha value. Sometimes we need to dynamically modify a background image element do not want to use more than one picture when, by this method, combined with Canvas and Paint dynamically modify a solid Bitmap color.
-
-* There need to pass messages between modules, use LocalBroadcastManager replace the module Listener decoupling. In addition to decoupling, and send messages, and perform message difference between a thread loop, you can reduce the call chain method, I'll run into one method call chain is too long cause StackOverflow questions.
-
-* Static variables do not directly or indirectly reference Activity, Service and so on. It will use the Activity and all the objects it refers can not be released, and then, the user operates over time, the memory will be spiraling.
-
-* Handler has a characteristic mechanism is not with the end of Activity, Service life cycle ends. That is, if you a Post Delay of Runnable, then withdrew before the Runnable implementation of Activity, Runnable to later time or to be executed. If Runnable which contains updates View operation, the program crashes.
-
-* Many people in the sub update View thread like to use Context.runOnUiThread, but there is a drawback,  such a Context end of life, such as when Activity have been destroyed, it will collapse.
-
-* SharedPreferences.Editor.commit This method is synchronous, synchronized to the data until after the Flash above will return by the IO operation, it is uncontrollable, try to apply the method to use instead. apply only in the API Level> = 9 will support, you need to do is compatible. However, the latest support v4 package ready for us to deal with, the use of SharedPreferencesCompat.EditorCompat.getInstance (). Apply (editor) to complete.
+* DateUtils.formatDateTime ()) This method can output the corresponding formatted time or date
 
 
-* PackageManager.getInstalledPackages This method is often used. You may not know, when the number of results obtained more time, in some models above the call time it may take several seconds, so try to use in the sub-thread. In addition, if too many results, limit Binder data exceeds system set the maximum amount of transmission can occur TransactionException, if you use this method to get a list of applications already installed on the machine, it is best to do some prevention.
+* Pair This class can be used to store a "group" of data. But not the relationship between key and value.
 
-* If Context.startActivity launch an external application, it is best to do something abnormal prevention, because find no corresponding application, it will throw an exception. If you want to open an Activity within the application, consider using explicit Intent, this can improve the efficiency of the system Activity search target.
+* SparseArray There are many places from the performance optimization side to use SparseArray to replace the hashMap, to save memory and improve performance.
 
-* Application life cycle is the process life cycle. Only when the process is to kill, Application will be destroyed. Even if there is no Activity, Service is running, Application will be present. Therefore, in order to reduce memory pressure, try not referenced in the Application Large objects, Context and the like.
+* Linkify.addLinks () This class makes it easier to add hyperlinks to text.
 
-* getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT); Be sure to call after setContentView
+* Android.media.ThumbnailUtils This class is mainly used to deal with thumbnail-related work, such as: used to get the media (pictures, video) thumbnails
+```
+CreateVideoThumbnail (String filePath, int kind)
+ExtractThumbnail (Bitmap source, int width, int height)
+```
 
-* boolean isEnabled = Settings.System.getInt(context.getContentResolver(), Settings.System.AIRPLANE_MODE_ON, 0) == 1; Analyzing phone is not flight mode
+* Bitmap.extractAlpha (); returns a new Bitmap, capture the alpha value of the original image. Sometimes we need to dynamically modify the background image of an element and do not want to use multiple pictures of the time, through this method, combined with Canvas and Paint can dynamically modify a solid color Bitmap color.
 
-* The official did not provide TabLayout modify TextView size method, you can create a style CustomTabLayoutTextAppearance inheritance TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse, then increase the item, set the android: textAllCaps is true, then set the android: textSize you want to set size.
-![](https://camo.githubusercontent.com/4f6cb736aab110981320e0350a9677f8acae3803/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f36343066303361666a7731657830743137616a36376a3230756b3035383075662e6a7067)
-Then set the app in TabLayout layout file: tabTextAppearance = "@ style / CustomTabLayoutTextAppearance" can be.
-![](https://camo.githubusercontent.com/d174f31172b7390ac02f97030bf916e10b9d5e8f/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f36343066303361666a7731657830743167756239336a323072753061343737712e6a7067)
+* When there is a message between modules, use the LocalBroadcastManager instead of the Listener for module decoupling. In addition to decoupling, this sends a message and executes a message that is worse than a thread loop that can reduce the method of calling the chain, and I have encountered a method call chain that is too long to cause StackOverflow.
 
-* The best way to traverse the HashMap
+* Static variables do not directly or indirectly refer to Activity, Service and so on. This will use the Activity and all the objects it references can not be freed, and then the user will run for a long time and the memory will go up.
 
-```java
-public static void printMap(Map mp) {
-    Iterator it = mp.entrySet().iterator();
-    while (it.hasNext()) {
-        Map.Entry pair = (Map.Entry)it.next();
-        System.out.println(pair.getKey() + " = " + pair.getValue());
-        it.remove(); // avoids a ConcurrentModificationException
-    }
+* Handler mechanism has a feature is not with the Activity, Service life cycle end and end. In other words, if you post a Delay Runnable, and then Runnable before the implementation of the exit from the Activity, Runnable to the time or to be executed. If the Runnable inside contains the operation to update the view, the program crashes.
+
+* Many people in the sub-thread update View like to use Context.runOnUiThread, this method has a drawback, that is, but the End of the life cycle, such as Activity has been destroyed, a call will collapse.
+
+* SharedPreferences.Editor.commit This method is synchronized, until the data is synchronized to the Flash before the return, by the IO operation is not control, try to use the apply method instead. Apply only in API Level> = 9 will support, need to be compatible. However, the latest `support v4` package has been handled for us, using the` SharedPreferencesCompat.EditorCompat.getInstance (). Apply (editor) `.
+
+* PackageManager.getInstalledPackages This method is often used, you may not know, when the number of results obtained more time, in some models above it may take time to call it second, so try to use in the sub-thread. In addition, if the result is too much, more than the upper limit of the maximum amount of Binder data set by the system, a TransactionException occurs. If you use this method to get the list of installed applications on the machine, it is best to do some precautions.
+
+* If you use Context.startActivity to start an external application, it is best to do something exception prevention, because you can not find the corresponding application, it will throw an exception. If you want to open the application of the Activity, not use the explicit Intent, this will improve the efficiency of the system search target Activity.
+
+* Application's lifecycle is the life cycle of the process. Only when the process is killed, Application will be destroyed. Even if there is no Activity, Service is running, Application will exist. So, in order to reduce memory pressure, try not to reference inside the application of large objects, Context and so on.
+
+* There are two ways to set the full-screen method: 1. Through the code settings, 2 through the manifest file settings. When the application is running, you may see a brief status bar, then the full screen, and the second method is not the case, so recommend the second.
+```
+//method 1: 
+// no title
+RequestWindowFeature (Window.FEATURE_NO_TITLE);
+GetWindow (). SetFlags (WindowManager.LayoutParams. FLAG_FULLSCREEN, WindowManager.LayoutParams. FLAG_FULLSCREEN);
+// must be called before setContentView ()
+SetContentView (R.layout.main);
+// Method 2:
+<Activity android: name = "."
+    Android: theme = "@ android: style / theme.NoTitleBar.Fullscreen" // full screen theme
+    Android: label = "@ string / app_name" />
+```
+
+* ViewCager's setCurrentItem must be in the setAdapter method after the call will be effective.
+
+* Determine whether the phone is not flying mode boolean isEnabled = Settings.System.getInt (context.getContentResolver (), Settings.System.AIRPLANE_MODE_ON, 0) == 1;
+
+* TabLayout modifies the font method
+The official TabLayout does not provide a way to modify the TextView size, you can create a new style customTabLayoutTextAppearance inheritance TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse, and then add the item, set up android: textAllCaps is true, and then set up android: textSize you want to set size.
+[] (Http://ww1.sinaimg.cn/large/640f03afjw1ex0t17aj67j20uk0580uf.jpg)
+And then in the TabLayout layout file set app: tabTextAppearance = "@ style / CustomTabLayoutTextAppearance" can be.
+[] (Http://ww1.sinaimg.cn/large/640f03afjw1ex0t1gub93j20ru0a477q.jpg)
+
+The best way to traverse HashMap
+```
+Public static void printMap (Map mp) {
+    For (Map.Entry m: mp.entrySet ()) {
+            System.out.println (m.getKey () + ":" + m.getValue ());
+        }
 }
 ```
 
-* Use Java generate random integer number within a range
-
-```java
-public static int randInt(int min, int max) {
-    Random rand;
-    int randomNum = rand.nextInt((max - min) + 1) + min;
-    return randomNum;
+* Use Java to generate random integers in a range
+```
+Public static int randInt (int min, int max) {
+    Random rand = new Random ();
+    Int randomNum = rand.nextInt ((max - min) + 1) + min;
+    Return randomNum;
 }
 ```
 
-* If the child class implements Serializable interface and the parent class does not implement, the parent will not be serialized, but this time the parent class must have a constructor with no arguments, otherwise it will throw an exception InvalidClassException.
+* If the subclass implements the Serializable interface and the parent class is not implemented, the parent class will not be serialized, but the parent must have a no-argument constructor, otherwise the InvalidClassException will be thrown.
 
-* transient keyword modified variables can limit serialized.
+* The transient keyword modification variable can limit serialization.
 
-* When used TabPageIndicator, if you need to do some time-consuming operation, and then display TabPageIndicator then you need to set mIndirector.setVisibility (View.GONE); then mIndirector.setVisibility after the end of time-consuming tasks (View.VISIBLE) ; otherwise it will error
+* When using JakeWharton's TabPageIndicator, if you need to do some time-consuming operation, and then show TabPageIndicator, you need to set mIndirector.setVisibility (View.GONE); then time-consuming task after the end mIndirector.setVisibility (View.VISIBLE ); Otherwise it will be an error
 
-* Calling sequence parent class static member class inheritance, between -> subclass static member -> ordinary members of the parent class initialization and initialization block -> parent class constructor -> subclass ordinary member initialization and initialization block -> subclass constructors
+* Class calls between inheritance parent class static member -> subclass static member -> parent class normal member initialization and initialization block -> parent class constructor -> subclass general member initialization and initialization block -> subclass constructor
 
-* Huawei cell phone can not display log solutions. dialing interface input (* # * # 2846579 # * # *) Service menu will appear.Go to "ProjectMenu" -.> "Background Setting" -> "Log Setting" Open "Log switch" and set it to ON.Open "log level setting" and set the log level you wish.
+* Huawei's mobile phone can not display the log solution. Dial-up interface input (\ * # \ * # 2846579 # \ * # \ *) Service menu will appear.Go to "ProjectMenu" -> "Background Setting" -> "Log Setting" Open "Log switch" and set it to ON.Open "Log level setting" and set the log level you wish.
 
-* Background service often because () the parameters passed Intent appear onStartCommand restart such as null, by onStartCommand () return value changed to return super.onStartCommand (intent, Service.START_REDELIVER_INTENT, startId); can solve the problem. Here are a few flag meaning
+* Background service is often restarted due to the occurrence of onStartCommand () in the Intent passed the parameters of the null, through the onStartCommand () in the return value into return super.onStartCommand (intent, Service.START_REDELIVER_INTENT, startId); can solve the problem The Here are some of the meaning of the flag <br />
 
-* | flag        | 解释       |
-| ------------- |:-------------:|
-| START_STICKY | If the process is to kill off the service, reservations service status start state, but does not retain the delivery of intent objects. The system then attempts to re-create the service, since the service started state status, so the service will create a call onStartCommand (Intent, int, int) method. If during this time there is no start command is transmitted to the service, it will be null parameter Intent。 |
-| START_NOT_STICKY | "Non-tacky." When using this return value, if onStartCommand After execution, the service is abnormal kill off, the system does not automatically restart the service。 |
-|START_REDELIVER_INTENT|Retransmission Intent. When using this return value, if onStartCommand After execution, the service is abnormal kill off, the system will automatically restart the service, value and incoming Intent。|
-|START_STICKY_COMPATIBILITY|START_STICKY compatible version, but does not guarantee the service is restarted after the kill。  |
+* | Flag | explain |
+| ------------- |: -------------: |
+| START_STICKY | If the service process is killed, keep the status of the service as the start state, but do not keep the delivery of the intent object. The system will then try to re-create the service, because the service state is the starting state, so after creating the service will call onStartCommand (Intent, int, int) method. If no startup commands are passed to the service during this period, the parameter Intent will be null. |
+| START_NOT_STICKY | "non-sticky". When using this return value, if the service is killed abnormally after the onStartCommand has been executed, the system does not automatically restart the service. |
+| START_REDELIVER_INTENT | Retransmit Intent. When using this return value, if the service is killed abnormally after executing the onStartCommand, the system automatically restarts the service and passes the value of Intent. |
+| START_STICKY_COMPATIBILITY | The compatible version of START_STICKY, but does not guarantee that the service will be able to restart after being killed. |
 
-* Can not show PopupWindow Activity and Dialog when not fully display
+* PopupWindow and Dialog can not be displayed if Activity is not fully displayed
 
-* Between multiple processes do not share data with SharedPreferences, although (MODE_MULTI_PROCESS), but is very unstable
+* Do not use SharedPreferences between multiple processes to share data, although it can (MODE_MULTI_PROCESS), but very unstable
 
-* Sometimes you can not use the Application Context, or will be error (such as start Activity, display Dialog, etc.)
-![](https://camo.githubusercontent.com/569dbb708117e17ec54db210ccafab96b06a1899/68747470733a2f2f706963332e7a68696d672e636f6d2f65336633323336636264393663363963646561313064303134626163626561655f622e706e67)
-*Note: NO attention to see some added some figures, in fact, these are from the ability for YES, NO, but why is it? Explained one by one below: 1. Digital 1: Start Activity in these classes is possible, but you need to create a new task, generally not recommended; 2. Digital 2: In these classes to layout inflate is legal, but will use the system default theme style, if you customize some styles may not be used; 3. the number 3: is null allow the Receiver, in version 4.2 or above for obtaining the current sticky broadcast value. (Can ignore); 4. ContentProvider, BroadcastReceiver reason in the above table, because its internal process has a context for use.
+* Sometimes you can not use the Application of the Context, or will be error (such as start Activity, show Dialog, etc.)
+! [] (Https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/context_usage.png)
 
-* Android theme prudent use transparent, transparent theme will cause a lot of problems, such as: if the new Activity using a transparent theme, then the current Activity of onStop method is never called; press the Home key to set the theme of the Activity transparent interface, the may cause the refresh is not clean; transparent theme into the theme of the interface will be significantly delayed
+> * Note: we have to see some NO on the addition of some numbers, in fact, these ability is YES from the ability, but why is it NO? One of the following explanations:
+1. Number 1: start Activity in these classes is possible, but need to create a new task, the general situation is not recommended;
+2. number 2: in these classes to layout inflate is legal, but will use the system default theme style, if you customize some of the style may not be used;
+3. Number 3: Allowed when Receiver is null, in 4.2 or above, to get the current value of the sticky broadcast. (Can be ignored);
+4. ContentProvider, BroadcastReceiver reason in the above table, because in its internal method has a context for use.
 
-* Do non-UI thread initialization ViewStub, because it will return null
+* Transparent use of Android's transparent theme, transparent theme will lead to a lot of problems, such as: If the new Activity uses a transparent theme, then the current Activity onStop method will not be called; set to transparent theme of the Activity interface, May lead to brush screen is not clean problem; into the theme of the transparent theme of the interface there will be a clear sense of delay
+* Do not initialize ViewStub in non-UI threads, otherwise it will return null
 
-* Try not to cache data through the Application, which is unstable
+* Try not to cache data through Application, which is not stable
 
-* Huawei phone can not turn on USB debugging problems,
-Plugged data cable, dial-up interface ## 2,846,579 ## input into the engineering model
-projectmenu → 3 → 4USB background set the port configuration → Balong debug mode, click OK
-Do not pull cord exit engineering mode, direct restart the phone, the computer displays a removable disk (if still does not appear, repeat steps 1 and 2)
-This is the method the computer using the phone's removable disk USB debugging closed the case, the use of drop-down menu usb option is also back.
+* Huawei mobile phone can not open the USB debugging problem,
+1. Insert the data line, dial interface input * # * # 2846579 # * # * into the project mode
+2. projectmenu → 3 background settings → 4USB port configuration → Balong debug mode, point to determine
+3. Do not pull the line, exit the project mode, directly restart the phone, the computer displays a removable disk (if not yet, repeat steps 1, 2)
+4. This is the way to turn off USB debugging in the case of mobile phones using mobile phones on the computer, using the usb option in the drop-down menu is also back.
 
-* When android listview contents of the soft keyboard is blocked, setting listview when adding android: transcriptMode = "normal"
+* Android listview message is blocked by the soft keyboard, and set up in the listview when android: transcriptMode = "normal" just fine
 
-* TextUtils is a very useful tools, it can turn into a List string, comma-delimited String string, cut List, respectively, can be used TextUtils the join and split method. If you want to go heavy on the List, you can use Collection of frequency method.
+* TextUtils is a very useful tool class, the List <String> into a string, comma separated, comma-separated String string, cut into List <String>, respectively, can be used TextUtils join and split method. If you want to repeat the List, you can use the Collection's frequency method.
 
-* Call moveTaskToBack (boolean non Root) method in activity to the activity retreated to the background, attention is not finish () to exit.
+* Invoke the moveTaskToBack (boolean nonRoot) method in the activity to bring the activity back to the background, noting the finish () exit.
 
-* activity in runOnUiThrea (Runnable action) method can return directly to the main thread
+* Activity in the runOnUiThrea (Runnable action) method can be directly back to the main thread
 
-* listview there footerDividersEnabled and headerDividersEnabled method to set the top and bottom listview divide, but make sure you set the headview and footview will have effect
+* Listview has a footerDividersEnabled and headerDividersEnabled method can set the top of the listview and the bottom divide, but must ensure that you set the headview and footview will have the effect
 
-* Throwable class getStackTrace () method, according to this method can be invoked layer by layer address of the function, which returns a value of StackTraceElement [];
+* Throwable class getStackTrace () method, according to this method can be a function of the layer call address, the return value of StackTraceElement [];
 
-* StackTraceElement class, four methods getClassName (), getFileName (), getLineNumber (), getMethodName () is very useful when debugging Print Log;
+* The StackTraceElement class, where the four methods getClassName (), getFileName (), getLineNumber (), getMethodName () are very useful when the debugger prints Log;
 
-* UncaughtExceptionHandler the interface, even the best code exception is inevitable, you can use this interface with the aftermath of an uncaught exception
+* UncaughtExceptionHandler interface, no matter how bad the code is inevitable, the use of this interface can not catch the exception to the aftermath
 
-* Resources class getIdentifier (name, defType, defPackage) method to get an ID based on the resource name, often used when doing UI;
+* The getIdentifier (name, defType, defPackage) method in the Resources class, which gets its ID based on the resource name, often used as a UI;
 
-* isShown method in view only when the view itself and all of its ancestors are visible, isShown () does not return TRUE.
-And usually we call if (view.getVisibility () == View.VISIBLE) view themselves not just be on the visibility of the ancestors of judgment.
+* View of the isShown method, only when the view itself and all its ancestors are visible, isShown () only return to TRUE. And usually we call if (view.getVisibility () == View.VISIBLE) is only on the view itself without the ancestors of the visibility to judge.
 
-*Arrays class set of tools on the method of operation of the array: binarySearch (), asList (), equals (), sort (), toString (), copyOfRange (), etc; Collections class set of tools on the collection method of operation
-: sort (), reverse (), etc;
+* Arrays class in a series of tools on the array operation methods: binarySearch (), asList (), equals (), sort (), toString (), copyOfRange (), etc .; Collections class on a collection of operations on the tool Method: sort (), reverse ();
 
-* TextView class append (CharSequence) method, add text.
-Some special text directly connected will become String;
+* Append (CharSequence) method in the TextView class, add text. Some special text directly with the + connection will become String;
 
-* TextView class append (CharSequence) method, add text.
-Some special text directly connected will become String;
+* The arraycopy (src, srcPos, dest, destPos, length) method in the System class is used to copy the array;
 
-* TextView class setTransformationMethod (TransformationMethod) method can be used to achieve the "Show password" feature
+* The onHiddenChanged (boolean) method in the Fragment class, using hide (), show () in FragmentTransaction only calls the show and hidden states in Fragment, and other lifecycles are not invoked.
 
-* PageTransformer interface used to customize the page switching animation ViewPager with setPageTransformer (boolean, PageTransformer) method to set up;
+* On the object class onWindowFocusChanged (boolean), onNewIntent (intent) and other callback methods;
 
-* apache package offers a series of jar: commons-lang.jar, commons-collections.jar, commons-beanutils.jar etc., there may be many ways you have used dozens of hundreds of lines of code before, but perhaps efficiency much worse, such as: ArrayUtils, StringUtils ......;
+* The setTransformationMethod (TransformationMethod) method in the TextView class can be used to implement the "Show Password" function
 
-* ActivityLifecycleCallbacks interface for monitoring the status of each change in the Application Activity class!  [article](http://mp.weixin.qq.com/s?__biz=MzA3ODkzNzM3NQ==&mid=401277907&idx=1&sn=0b2246f5178292596fc3a8295283359c#rd)
+* PageTransformer interface, used to customize the ViewPager page switch animation, setPageTransformer (boolean, PageTransformer) method to set;
 
-* ActionBar.hide () /. Show () As the name suggests, hide and show ActionBar, gracefully between full screen and with Actionbar conversion.
+* Apache to provide a series of jar package: commons-lang.jar, commons-collections.jar, commons-beanutils.jar, etc., there are many ways you may have used dozens of hundreds of lines of code to achieve, but the implementation of efficiency may Much worse, such as: ArrayUtils, StringUtils ... ...;
 
-* SystemClock.sleep () method to ensure that a certain period of sleep when it is convenient, I usually used for debug and simulate network delay.
+* ActivityLifecycleCallbacks interface, used in the Application class to monitor the status of the Activity changes [read address me] (http://mp.weixin.qq.com/s?__biz=MzA3ODkzNzM3NQ==&mid=401277907&idx=1&sn=0b2246f5178292596fc3a8295283359c# Rd)
 
-* UrlQuerySanitizer-- Use this tool to facilitate the URL to be checked.
+* ActionBar.hide () /. Show () As the name suggests, hide and show ActionBar, you can gracefully switch between full screen and actionbar.
 
-* ActivityOptions - easily define two animated Activity handover.
-ActivityOptionsCompat can be solved using an older version compatibility issues.
+* SystemClock.sleep () This method is very convenient to ensure that a certain time of sleep, usually I used to debug and simulate the network delay.
 
-* getParent () requestDisallowInterceptTouchEvent (true);. deprive the parent view for touch event handling right, with who knows who.
+* UrlQuerySanitizer - Use this tool to easily check the URL.
 
-* HandlerThread, instead of constantly opening new Thread subthreads repeated physical writing.
+* ActivityOptions - easy to define the two Activity switch animation. Use ActivityOptionsCompat to solve the old version of the compatibility problem.
 
-* IntentService, an own die after the work was done and we do not need to manage the child thread Service
+* GetParent (). RequestDisallowInterceptTouchEvent (true); deprives the parent view of the handling of the touch event, who knows who.
 
-* Executors newSingleThreadExecutor (); This is the java, and did not know it before, he spent a lot of effort to study the single-threaded task queue implementation of the order
+* HandlerThread, instead of non-stop new Thread sub-thread repetitive physical writing.
+ 
+* IntentService, a can be done after the death of their own death and do not need us to manage the sub-thread Service
 
-* android: animateLayoutChanges = "true", LinearLayout added View animation approach, supported by setLayoutTransition () Custom Animation.
+* Executors. NewSingleThreadExecutor (); This is a java, do not know it before, they spent a lot of effort to study the single-threaded sequential execution of the task queue
 
-* AsyncQueryHandler, if you do system development tools, such as contacts SMS and other aids, and certainly inevitable ContentProvider deal if the large amount of data is not the case, just do, if the next large amount of data, the understanding of this class is
-necessary to note that this stuff eat exception ..
+* Android: animateLayoutChanges = "true", LinearLayout add View animation method, support through setLayoutTransition () custom animation.
 
-* ViewFlipper, view of multiple switching (cycling), customizable animation effects, and can specify the animation for a single switch.
+* AsyncQueryHandler, if you do the development of system tools, such as contact SMS auxiliary tools, and certainly will not deal with ContentProvider, if the amount of data is not a big case, casually engage, if the amount of data in the case of large, understand the next class Is necessary, it should be noted that this thing to eat abnormal ..
 
-* android util package Pair class can easily be used to store a "set" of data.
-Note that not key value
+* ViewFlipper, to achieve multiple view of the switch (loop), you can customize the animation, and can be specified for a single switch animation.
 
-* android: descendantFocusability, ListView CheckBox and other elements of the item in focus grab lead item can not respond to a click event, in addition to the corresponding element is set focusable, simpler layout is the root item plus android: descendantFocusability = "blocksDescendants"
+* Android util package Pair class, can be easily used to store a "group" of data. Note that the key value is not
+* Android: descendantFocusability, ListView item CheckBox and other elements of the focus of the focus of the item click event can not respond, in addition to the corresponding element set focusable, the more simple is the root of the article plus android: descendantFocusability = "blocksDescendants"
 
-* includeFontPadding = "false", TextView default padding up and down there is a certain, sometimes we may not need up and down this part of the blank, plus it can be.
+* IncludeFontPadding = "false", TextView default is a certain padding, and sometimes we may not need this part of the blank, plus it can be.
 
-* Messenger, interview rooms are usually asked interprocess communication, under normal circumstances we are beginning endorsement, AIDL barabara.One day to see this blog hung God, ah, as he said, they can hold a little longer.
+* Messenger, the interview time will usually be asked to communicate between the process, under normal circumstances we are all endorsement, AIDL Bala Bala. The One day in the gods of the blog to see this, ah, as he said, and can be installed about.
 
-* EditTxt.setImeOptions, when using the soft keyboard pops up EditText, modify the display of the contents of the Enter key (always hate to use the Enter key to interact, so before you did not know this stuff)
+* EditTxt.setImeOptions, use EditText pop-up soft keyboard, modify the Enter key to display the content (has been very annoying to use the Enter key to interact, so do not know this thing before)
 
-* java8 new in LocalDate and LocalTime interfaces, Date though a universal interface, but it really does not work well, with maybe, finally happy date processing time.
+* Java8 in the new LocalDate and LocalTime interface, Date is a universal interface, but it really is not easy to use, with these two, and finally can be happy to deal with the date and time.
 
-* WeakHashMap, direct use HashMap sometimes pose a risk of memory overflow, use WaekHashMap instantiate Map.
-When the user no longer has an object reference time, WeakHashMap will be removed object corresponds Key values.
+* WeakHashMap, the direct use of HashMap sometimes bring the risk of memory overflow, using WaekHashMap instantiation Map. When the user no longer has an object reference, WeakHashMap will automatically be removed from the corresponding key value of the object.
 
-* Use SnackBar, do not use view.getRootView () as the snackbar of view, Huawei glory 7 will go wrong.
+* When using SnackBar, do not use view.getRootView () as the view of snackbar, Huawei glory 7 will be a problem.
 
-* Setting TextView single-line display when not to use Lines = 1, and use singleLine = "true", as part of the phone Meizu setting Lines = 1, when then TextView value of all numbers, you will be forced to rip up.
+* Set the TextView single line when the show do not use Lines = 1, and use singleLine = "true", because the Meizu part of the phone in the set Lines = 1, and then the value of TextView all the numbers, you will be muddled The
 
-* TouchDelegate View can be used to change the touch area.
-Scene: For example, in the ItemView RecyclerView contains a CheckBox component, and then click ItemView when you want to achieve, can also trigger CheckBox, you can use such
+* TouchDelegate can be used to change the touch area of ​​View. Scene: For example, in the RecyclerView's ItemView contains the CheckBox component, and then want to achieve when you click on the ItemView, you can also trigger the CheckBox, you can use this class
 
-* ArgbEvaluator can be used to interpolate between the values ​​of different colors, with ValueAnimator.ofObject or ViewPager.PageTransformer use, you can achieve a smooth transition between the different colors.
+* ArgbEvaluator can be used to calculate the interpolation between different color values, with ValueAnimator.ofObject or ViewPager.PageTransformer use, you can achieve a smooth transition between different colors.
 
-* Palette can be used to extract the color of picture.
+* Palette can be used to extract the color of a picture.
 
-* ViewDragHelper, done custom ViewGroup children's shoes should know this thing right to handle touch events artifact, my mother no longer have to worry about me a custom control.
+* ViewDragHelper, done custom ViewGroup children's shoes should know this thing, used to deal with touch artifacts, my mother no longer have to worry about my custom control.
 
-* PageTransformer for animation effects when switching to define ViewPager page (fade, zoom god of horses ...) there are examples of official directly see.
+* PageTransformer used to define the ViewPager page switch when the animation effect (fade, zoom in and out of the ...) There are examples of official, see it directly.
 
-* Activity.recreate recreate Activity.
-What use is it?
-You can change the theme in the program, and immediately refresh the current Activity, without significant restarted Activity animation.
+* Formatter.formatFileSize () This method will format the data size, according to the input byte size, return B KB MB GB and so on (maximum support to PB). Of course, note that the maximum value entered is Long.MAX_VALUE.
 
-* View.getContext() , can get a Context :)
+* Activity.recreate re-create the Activity. what's the function? You can change the theme after the program, immediately refresh the current Activity, and there will be no obvious restart the animation animation.
 
-* View.post facilitate non-UI thread interface modifications, and Handler similar role.
-And since the post would ensure the Runnable only called at the finish drawing View premise, it is generally to be used to obtain View width and height.
+* View.getContext As the name suggests, do not have to explain it ... In the previous RecyclerView adapter, in order to use LayoutInflater, often silly in the constructor passed in an external context ... is not only I do not know it (laugh cry face)
 
-* Activity.runOnUiThread View.post with similar convenience in a non-UI thread of the interface changes.
+* View.post easy to modify the interface in non-UI threads, similar to the role of Handler. And because the post Runnable will ensure that the view is completed under the premise of the call, it can also be used to obtain the View width and height.
 
-* Fragment mating PagerAdapter use when you can rewrite setUserVisibleHintFragment () method, and then (representing the current Fragment visible to the user if true) to perform some logic based on Boolean parameter.
+* Activity.runOnUiThread and View.post similar to the convenience of non-UI threads in the interface to modify.
 
-* android: animateLayoutChanges This is a very cool property.
-The parent layout plus android: animateLayoutChanges = "true", if triggered layout methods (such as its sub-View is set to GONE), the system will automatically help you add animation effects to change the layout of the time!
+* Fragment When working with PagerAdapter, you can override the setUserVisibleHintFragment () method and then execute some logic based on the boolean value of the argument (true that the current Fragment is visible to the user).
 
-* android: clipToPadding set the parent allows its child to view it in view of padding (in this case is the parent View of padding) is plotted.
-Is not it about?
-For the actual scene you: if there is a ListView, we want in the initial position, the first top 10dp Item from a distance, you can add in android ListView layout: clipToPadding = "false" android: paddingTop = "
-10dp "can be.
-Is not it convenient?
+* Android: animateLayoutChanges This is a very cool property. In the parent layout plus android: animateLayoutChanges = "true", if triggered the layout method (such as its sub-view set to GONE), the system will automatically help you add the layout changes when the animation effects! The
 
-* rv's Layoutmanager directly stated in xml, the specific code to view RecyclerView.createLayoutManager methods.
-![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/recycler_1.jpeg)
-![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/recycler_2.jpeg)
+* Android: clipToPadding Set whether the parent view allows its child view to be drawn in its padding (in this case, the parent view padding). Is it a bit around? Give a real scene: If there is a ListView, we want in the initial position, the first item from the top of the distance of 10dp, you can add in the ListView layout android: clipToPadding = "false" android: paddingTop = " 10dp "can be. Is not it convenient?
 
-* RecyclerView new in version 23.2 of the automatic measurement function, due to the new automatic measurement, the layout of its roots in the item to be measured can not write match_parent direction, the need to change wrap_conte
+* Rv's Layoutmanager can be directly stated in xml, the specific code can be viewed RecyclerView.createLayoutManager method.
+! [] (Https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/recycler_1.jpeg)
+! [] (Https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/recycler_2.jpeg)
 
-* getParent () requestDisallowInterceptTouchEvent (true);. deprive the parent view for touch event handling right, with who knows who.
+* RecyclerView in 23.2. + Version of the new automatic measurement function, due to the addition of automatic measurement, then the root of its item in the direction of the need to measure the direction can not write match_parent, and need to be changed into wrap_content
 
-* Canvas in clipRect, clipPath and clipRegion shear zone API.
- 
-* GradientDrawable have a shadow effect is also good, that is a cut image, a look at the code, what the hell = =!
+* GetParent (). RequestDisallowInterceptTouchEvent (true); deprives the parent view of the handling of the touch event, who knows who.
 
-* A friend mentioned in the Custom View when some hardware acceleration in the open method has no effect when the problem after API16 indeed there are many ways does not support hardware acceleration, we usually turn off hardware acceleration through in the manifest file, in fact, also android
-Close View provides specific hardware acceleration approach, calling View.setLayerType (View.LAYER_TYPE_SOFTWARE, null); can be.
+* Canvas in the clipRect, clipPath and clipRegion cut area API.
 
-* PointF, graphics package, a class that we often see in dealing Touch events are defined a downX, a downY for storing a coordinate, if the coordinates little better, if you want to record the coordinates of that code does not look good too a.With PointF (float x, float y); to describe a coordinate point will be much clear.
+* GradientDrawable has a shadow effect is also good, that is cut the picture, a look at the code, what ghost ==!
 
-* StateListDrawable, the usual approach is to define Selector xml file, but sometimes our image resources may be dynamically obtained from the server, such as the skin of a lot of so-called app, this time can only be accomplished through StateListDrawable the various addState
-can.
+* Some friends mentioned in the custom View when some methods in the open hardware acceleration when there is no problem in the API16 after there are many ways do not support hardware acceleration, usually we close the hardware acceleration is in the list file through the <application android : HardwareAccelerated = "false" ...>, in fact, android also provides a specific View closed hardware acceleration method, call View.setLayerType (View.LAYER_TYPE_SOFTWARE, null);
 
-* android: duplicateParentState = "true", so that the child follow the status of their Parent View, such as pressed and so on.
-Common usage scenarios is sometimes a little button, when we want to expand their hit areas are usually wrapped in a layer to give its layout, a click event written on the Parent, this time if you want to be wrapped in a button click effect
-corresponding Selector remain in force, then it comes in handy when duplicateParentState.
+* PointF, graphics package in a class, we often see in dealing with the Touch event, respectively, when the definition of a downX, a downY used to store a coordinate, if the coordinates of less good, if you want to record the coordinates of too much that code is not Look good. Using PointF (float x, float y); to describe a coordinate point will be a lot of clear.
 
-* ViewConfiguration.getScaledTouchSlop (); when the minimum distance between trigger event moving, custom View handle touch events, sometimes need to determine whether the user really exists movie, the system provides such a method.
+* StateListDrawable, Define Selector The usual way is xml file, but sometimes our picture resources may be dynamically obtained from the server, such as a lot of app so-called skin, this time only through StateListDrawable to complete, AddState.
 
-* ViewStub, a region sometimes need to display different layouts depending on the circumstances, we usually go through the setVisibility way to show and hide different layouts, but this acquiescence is fully loaded, you can improve performance by better ViewStub.
+* Android: duplicateParentState = "true", let sub-view follow its Parent state, such as pressed and so on. Common use of the scene is sometimes a button is very small, we want to expand its click area when it is usually given a layer of its layout, the click event will be written to the Parent, this time if you want to be wrapped button click effect The corresponding Selector to continue to take effect, then this time on the use of duplicateParentState.
 
-* onTrimMemory, rewrite Activity in this method, the callback will be running out of memory (support multiple levels), we took the initiative to facilitate the release of resources, avoid OOM.
+* ViewConfiguration.getScaledTouchSlop (); trigger the minimum distance of mobile events, custom View processing touch events, sometimes need to determine whether the user really exists movie, the system provides such a method.
 
-* TextView.setCompoundDrawablePadding, the code sets TextView drawable padding.
+* ViewStub, sometimes a region needs to show different layouts according to the situation, usually we will setVisibility method to show and hide the different layout, but this is all loaded by default, with ViewStub can better improve performance.
 
-* ImageSwitcher, can be used for a class picture switch, similar to the slide.
+* OnTrimMemory, rewrite this method in the Activity, the memory will be tight when the callback (to support multiple levels), so that we take the initiative to release the resources to avoid OOM.
 
-* In the custom of the time, can be drawable to draw a circle, or any other style, try to use drawable, because the effect is far better than the drawable canvas.drawXXX ().
+* TextView.setCompoundDrawablePadding, the code sets the drawable padding of the TextView.
 
-* If you want to customize the View support SwipeRefreshLayout, only need to declare and implement interfaces to ScrollingView, RecyclerView and NestedScrollView already implements this interface.
+* ImageSwitcher, which can be used to make a picture toggle a class, similar to a slideshow.
 
+* In the custom control, can draw draw to draw round, or other styles, try to use drawable, because the effect of drawable far better than canvas.drawXXX ().
 
-* AtomicFile-- backup file by using the atomic operation file.
-Before this knowledge I also wrote, but better to have an official version better.
+* If you want to customize View support SwipeRefreshLayout, you only need to declare and implement the ScrollingView interface. RecyclerView and NestedScrollView have already implemented this interface.
 
-* DatabaseUtils-- a database containing a variety of operations using the tool.
+* AtomicFile - the use of backup files for the atomization of the file. I have written this knowledge before, but it is better to have an official version is better.
 
-* Activity.isChangingConfigurations () - If the Activity in the configuration will change often, then you can not use this method to manually do the job of the state saved.
+* DatabaseUtils - a tool that contains a variety of database operations.
 
-* SearchRecentSuggestionsProvider-- recent tips can create effects provider, it is a simple and fast way.
+* Activity.isChangingConfigurations () - If the Activity in the Activity will often change, then use this method can not manually save the state of the work.
 
-* android: clipChildren (ViewGroup) - If this property is not available, then the sub View ViewGroup when drawing will go beyond its scope, the need to use when doing animation.
+* SearchRecentSuggestionsProvider - can be created recently prompted the effect of the provider, is a simple and quick way.
 
-* android: fillViewport (ScrollView) - links to articles are detailed in this article, can solve the problem of insufficient time in ScrollView be filled when the content of the screen.
+* Android: clipChildren (ViewGroup) - If this property is set to not available, then ViewGroup's subview will draw beyond its scope and need to be animated.
 
-* android: tileMode (BitmapDrawable) - You can assign a picture to use refillable mode.
+* Android: fillViewport (ScrollView) - in this article has a detailed description of the article link, you can solve the ScrollView when the content is insufficient to fill the screen when the problem.
 
-* android: enterFadeDuration / android: exitFadeDuration (Drawables) - This attribute Drawable have multiple states, you can define the fade-out effect before it shows.
+* Android: tileMode (BitmapDrawable) - You can specify the image to use the overlay mode.
 
-* Log.wtf () means What a Terrible Failure, instead of What The Fuck!
+* Android: enterFadeDuration / android: exitFadeDuration (Drawables) - This property has a variety of states when Drawable can define the fade effect before it is displayed.
 
-* Use RenderScript image blur effect.
-If your app is minSDK is 16 or less, you need to use the support mode, because a lot of methods are added after the API 17.renderscriptTargetApi up to 23, but you should set it to use the script to maintain the functional integrity of the lowest API.If you want to target API 21 under support mode you must use gradle-plugin 2.1.0 and buildToolsVersion "23.0.3" or above.We need to add renderscriptTargetApi 18 in gradle in, renderscriptSupportModeEnabled true two sentences
+* Log.wtf () means what a Terrible Failure, not what The Fuck!
 
-```java
-public static Bitmap blurBitmap(Context context, Bitmap src, int radius) {
-        Bitmap dest = src.copy(src.getConfig(), true);
-        RenderScript rs = RenderScript.create(context);
-        Allocation allocation = Allocation.createFromBitmap(rs, src);
-        Type t = allocation.getType();
-        Allocation blurredAllocation = Allocation.createTyped(rs, t);
-        ScriptIntrinsicBlur blurScript = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));
-        blurScript.setRadius(radius);
-        blurScript.setInput(allocation);
-        blurScript.forEach(blurredAllocation);
-        blurredAllocation.copyTo(dest);
-        allocation.destroy();
-        blurredAllocation.destroy();
-        blurScript.destroy();
-        t.destroy();
-        rs.destroy();
-        return dest;
-    }
+* Use RenderScript to blur the image effect. If your app has a minSDK of 16 or less, you need to use the support pattern, because many of the methods are added after the API 17. RenderscriptTargetApi up to 23, but you should set it up to keep the script with the full functionality of the minimum API. If you want the target API 21+ in the support mode you have to use gradle-plugin 2.1.0 and buildToolsVersion "23.0.3" or more. Need to add graderscripttargetApi in gradle 18, renderscriptSupportModeEnabled true these two sentences
 ```
-* The view is converted into bitmap
-
-```java
-public void captureView(){
-    int height = getStatusHeight(mContext);
-    Bitmap bmp1 = Bitmap.createBitmap(tempView.getWidth(), tempView.getHeight(),
-                        Bitmap.Config.ARGB_8888);
-                Canvas canvas = new Canvas(bmp1);
-                tempView.draw(canvas);
-                int currentapiVersion = android.os.Build.VERSION.SDK_INT;
-                Bitmap bmp2 = null;
-                /**
-                 * 如果版本是5.0以上,要去掉状态栏
-                 */
-                if (currentapiVersion >= Build.VERSION_CODES.LOLLIPOP) {
-                    bmp2 = Bitmap.createBitmap(bmp1, 0, height, bmp1.getWidth(), bmp1.getHeight() - height);
-                } else {
-                    bmp2 = Bitmap.createBitmap(bmp1);
-                }
-                bmp1.recycle();
-}
-private int getStatusHeight(Context ct) {
-        int result = 0;
-        int resourceId = ct.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0) {
-            result = ct.getResources().getDimensionPixelSize(resourceId);
-        }
-        return result;
-    }
+Public static Bitmap blurBitmap (Context context, Bitmap src, int radius) {
+        Bitmap dest = src.copy (src.getConfig (), true);
+        RenderScript rs = RenderScript.create (context);
+        Allocation allocation = Allocation.createFromBitmap (rs, src);
+        Type t = allocation.getType ();
+        Allocation blurredAllocation = Allocation.createTyped (rs, t);
+        ScriptIntrinsicBlur blurScript = ScriptIntrinsicBlur.create (rs, Element.U8_4 (rs));
+        BlurScript.setRadius (radius);
+        BlurScript.setInput (allocation);
+        BlurScript.forEach (blurredAllocation);
+        BlurredAllocation.copyTo (dest);
+        Allocation.destroy ();
+        BlurredAllocation.destroy ();
+        BlurScript.destroy ();
+        T.destroy ();
+        Rs.destroy ();
+        Return dest;
+    }
 ```
 
-* When Activity LauncherMode as singleTask singleInstance, use startActivityForResult will immediately return, it can not be called normal.
-Specific look http://www.360doc.com/content/15/0123/14/12928831_443085580.shtml
+* If you want to save a view as Bitmap, under normal circumstances with the first method can be, but if it is ScrollView, you must use the second method. <br />
+! [] (Https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/capture_view_1.jpg)
+! [] (Https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/capture_view_2.jpg)
 
-* When PopupWindow there EditText control because Popupwindow not get the focus by default, you need to manually set the focus, so to get to the sub-view monitor events.
-So you need to set his focus After creating popwindow, popupWindow.setFocusable (true); it can make EditText gets focus.
+* When Activity LauncherMode is singleTask singleInstance, use startActivityForResult to return immediately, can not be called normally. Please see http://www.360doc.com/content/15/0123/14/12928831_443085580.shtml
 
-* When PopupWindow Default Click outside does not disappear, you need to set a background image PopupWindow popWindow.setBackgroundDrawable (new BitmapDrawable ()); To create an empty object set to null is not enough, or just create a fully transparent background.
+* When PopupWindow in the EditText control, because Popupwindow acquiescence did not get to the focus, you need to manually set the focus, so look like the view to the event of the monitor. So you need to create the popwindow after setting his focus, popupWindow.setFocusable (true); you can let EditText get the focus.
 
-* android serialized official recommendation Parceble, in fact Parceble best used to exchange data between the memory, and if we want to write data to the hard disk, then recommend implements Serializable
+* PopupWindow default to the external time does not disappear, you need to set a background popupWindow popWindow.setBackgroundDrawable (new BitmapDrawable ()); To create an empty object, set to null is not enough, or create a transparent background map.
 
-* Tags can be good tools to help developers real-time preview of the effect of xml, and later to run the content label tools will not be displayed, for example:
+* Android in the serialization of the official recommendation Parceble, in fact, Parceble is best used for data exchange between memory, if you want to write data to the hard disk, it is recommended to achieve Serializable
 
-````java
+* Tools can be very helpful to help developers real-time preview xml effect, through the tools: background can preview the control of the controls, tools: visibility can be a control of the time in the preview show, and run after the tools label The content will not be displayed. For example:
+```
 <TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:text="This passage can be seen only in the preview, after running to see it" />
+    Android: layout_width = "match_parent"
+    Android: layout_height = "wrap_content"
+    Tools: background = "# FF00FF"
+    Tools: visibility = "visible"
+    Tools: text = "This is only seen in the preview, after running can not see the" />
 ```
 
-* android studio 2.1 has support from the jdk8, use the time to add in gradle, we need to update the buildToolsVersion 24 or later
-
+* Android studio 2.1 has been supporting jdk8, and when used in the gradle added, the need to buildToolsVersion updated to more than 24 versions
 ```
-android {
-    defaultConfig {
-    ...
-            jackOptions {
-                enabled true
-            }
-        }
-   ...
-    compileOptions {
-        targetCompatibility 1.8
-        sourceCompatibility 1.8
-    }
+Android {
+    DefaultConfig {
+    ...
+            Jackoptions {
+                Enabled true
+            }
+        }
+   ...
+    CompileOptions {
+        TargetCompatibility 1.8
+        SourceCompatibility 1.8
+    }
 }
 ```
 
-* After 6.0 getResources (). GetColor () method was abandoned, we can ContextCompat.getColor (context, R.color.color_name) replaced with, ContextCompat is v4 bag, ease of use, plus getDrawable () methods
+* 6.0 after the getResources (). GetColor () method is abandoned, we can use ContextCompat.getColor (context, R.color.color_name) replacement, ContextCompat is v4 package, please rest assured that there are also getDrawable () and so on method
 
-* Pictures of the resource files on the officially recommended only the launcher mipmap folder, use the resource file and app recommendations on drawable below.
+* Image resource file official recommendation only put launcher under the mipmap folder, and app the resource file used to put it under the drawable.
 
-* SharedPreference.Editor apply the asynchronous operation does not return a successful state, and commit a synchronous operation, therefore, multiple concurrent submitted commit, they will wait for the commit is being processed and then saved to disk with the next data
-, thereby reducing the efficiency.
+* SharedPreference.Editor apply is asynchronous operation, will not return to the successful state, and commit is synchronous operation, therefore, in a number of concurrent commit commit, they will wait for the commit is being processed to save the disk and then operate the next Data, thereby reducing efficiency.
 
-* If you manifest that the one activity set android: windowSoftInputMode = "adjustResize", then ScrollView (or any other scalable ViewGroups) will be reduced to make room for the soft keyboard.
-However, if you set the android in the activity topics: windowFullscreen = "true", then ScrollView not shrink.
-This is because the property is mandatory ScrollView full screen.
-However, in setting android theme: fitsSystemWindows = "false" will lead to ineffective adjustResize
+* If you set an activity in the manifest to android: windowSoftInputMode = "adjustResize", then ScrollView (or other scalable ViewGroups) will shrink to make room for the soft keyboard. However, if you set the android: windowFullscreen = "true" in the theme of the activity, then ScrollView will not shrink. This is because the property forces ScrollView to be full screen. However, in the theme set android: fitsSystemWindows = "false" will also lead to adjustResize does not work
 
-* In Android 4.0 later broadcast in Manifest.xml static registration, you must start again in order to receive the broadcast after the program is installed, such as your application to listen radio boot, you have to run through the program is to listen to
+* After Android 4.0, in the Manifest.xml static registration of the broadcast, the program must be installed once to receive a broadcast, such as your application to monitor the boot-activated broadcast, you must run your program to be able to monitor
 
-* Activity of onDestory method call timing is uncertain (sometimes will be called after a long time away from the interface onDestory method) should be avoided expect to release the resources associated with the Activity by onDestory method, otherwise it will lead to some random bug
+* Activity onDestory method call timing is uncertain (sometimes leave the interface for a long time after the call onDestory method), should be avoided through the onDestory method to release the resources associated with the Activity, otherwise it will lead to some random bug
 
-* 2.X era Bitmap objects stored in the heap memory though, but with a byte array to store its pixel information. By a counter to record the number of the pixel information is referenced. Some people think that this byte array in native heap, but in fact it is also heap. Only after a user calling recycle (), Bitmap objects will release pixel information, reference will be lost after the garbage collection mechanism destroyed. Coupled with the heap size DVM strict threshold, so we use a lot of pictures resources when and prone OOM. Solutions are generally, reference to a hash table with a soft storage Bitmap object as a memory cache, and at the appropriate time off with their recycle (). 3.0+ Bitmap object can be completely destroyed by the garbage collection mechanism, in theory, no longer calling recycle ().
+* 2.X era Bitmap object is stored in the heap memory, but with a byte array to store its pixel information. The number of references to the pixel information is recorded by a counter. Some people think that this byte array in the native heap, but in fact it is also in the heap. Only after the user calls recycle (), the Bitmap object will release the pixel information before it will be destroyed by the garbage collection mechanism. Coupled with the DVM heap size has a strict threshold, so the use of a large number of picture resources, and its prone to OOM. The solution is generally to use a hash table to store the soft reference of the Bitmap object, as a memory cache, and at its proper time off its recycle (). 3.0 or later Bitmap object can be completely destroyed by the garbage collection mechanism, theoretically no need to call recycle ().
 
-* .gitignore only ignored those who had not track the files if some files have been included in the version management, the modified .gitignore is invalid.
-Then the solution is to first remove the local cache (not track changes to the state), and then submitted to:
-
+* .gitignore can only ignore those files that were not currently tracked, and if some files have been included in version management, the modified .gitignore is invalid. Then the solution is to first delete the local cache (changed to no track state), and then submit:
 ```
-git rm -r --cached .
-git add .
-git commit -m 'update .gitignore'
+Git rm -r --cached.
+Git add
+Git commit -m 'update .gitignore'
 ```
 
-* Use long timestamp or String type reception pit encountered since the project model many of which were generated by GsonFormat server to the json timestamp is 10, resulting in GsonFormat automatically parse it became int when testers select time in 2100, when the timestamp is the beginning of the ten with 4 int type receiver out of bounds, resulting in an error
+* Timestamp Please use long or String type to receive, encountered the pit, because the project model is generated by a lot of GsonFormat, the server to the json timestamp is 10, resulting in GsonFormat automatically resolved into Int, when the testers select the time for 2100 when the timestamp is 4 at the beginning of the ten with the int type to receive cross-border, and lead to error
 
-* Your app to add a default layout style, for example: Each control width and height attributes need to write, but a lot of width and height attribute controls are wrap_content, so we can add the following style in the style file:
-
+* For your app to add the default layout style, such as: each control need to write width and height attributes, but many of the control of the width and height attributes are wrap_content, then we can add the following style in the style file:
 ```
-<style name="Theme.YourApp" parent="android:style/Theme.Light">
-    <item name="android:layout_width">wrap_content</item>
-    <item name="android:layout_height">wrap_content</item>
-</style>
+<Style name = "Theme.YourApp" parent = "android: style / Theme.Light">
+    <Item name = "android: layout_width"> wrap_content </ item>
+    <Item name = "android: layout_height"> wrap_content </ item>
+</ Style>
 ```
+In this way, the control of the width of the default are wrap_content style friends.
 
-Thus, the width and height of the default controls are wrap_content style friends.
-
-* In the style of writing styles by deemed to extend your parent label style, which is more efficient.
-
+* Style in the style written by the same as the parent tag to extend your style, so more efficient, where the official proposal is that only Android comes with the style tag with the parent, if it is a custom style, direct use. To connect on the line. Such as Fill.Height.
 ```
-<style name="Fill">
-    <item name="android:layout_width">fill_parent</item>
-    <item name="android:layout_height">fill_parent</item>
-</style>
-<style name="Fill.Height" parent="@style/Fill">
-    <item name="android:orientation">vertical</item>
-</style>
+<Style name = "Fill">
+    <Item name = "android: layout_width"> fill_parent </ item>
+    <Item name = "android: layout_height"> fill_parent </ item>
+</ Style>
+<Style name = "Fill.Height">
+    <Item name = "android: orientation"> vertical </ item>
+</ Style>
 ```
 
-* Android application switching button on the application but is not actually listed Task, so you will see some applications in switching view, there are several tasks.
-If your application has logically independent parts, or you want to display side by side in two different parts of the application in a multi-window environment, this situation is suitable for multi-task.
-Use manifest attribute (static) or intent flags (dynamic) can achieve this
-<img src="https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/multy_task1.jpg" width = "50%" height="300px" /><img src="https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/multy_task2.jpg" width = "50%"  height="300px"/>
+* Android application switching button is not listed in the application but Task, so you will see some applications in the switch view there are multiple tasks. These situations are suitable for multitasking if your application has logically independent parts, or if you want to show the two different parts of the application side by side in a multi-window environment. Use the manifest attribute (static) or intent flags (dynamic) to achieve this, see the video: http://v.youku.com/v_show/id_XMTU2ODk4NDg2NA==.html?f=26587294
 
-* When using the app's theme is NoActionBar, but is still used in the layout toolbar, do not add fitsSystemWindows property in style file, but in the use of the toolbar layout outermost plus fitsSystemWindows, or when you use EditText, in long press to bring up the system EditText paste function on millet phone when pasted layout layout will be misplaced.
+<Img src = "https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/multy_task1.jpg" width = "50%" height = "300px" /> <img src = "https : //raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/multy_task2.jpg "width =" 50% "height =" 300px "/>
 
-* When WebView and ScrollView nest, and WebView have font zoom function, when after switching fonts webview, webview height and not well calculated, this time by way of injection, let js height calculated by test, this is the most reliable code address: http: //blog.csdn.net/jys1115/article/details/43525979
+* When the app's theme is NoActionBar, but in the layout is still used when the toolbar, not in the style file fitsSystemWindows attribute, but in the use of the toolbar of the outermost layer plus fitsSystemWindows, or when you use EditText, In the millet phone long press EditText call up the system paste function, paste the layout of the layout will be dislocation.
 
-* Context class createPackageContext (packageName, flags) method can be used to obtain the specified package name for the application Context object.
+* When WebView and ScrollView nested use, and WebView font zoom function, when switching webview fonts, webview height and can not be a good calculation, this time through the injection method, so that js calculate the height, Tested, this is the most reliable, code address: http://blog.csdn.net/jys1115/article/details/43525979
 
-* TextView.class has a method called setKeyListener (KeyListener) ; wherein DigitsKeyListener class, use getInstance (String accepted) method to specify the EditText can input character set;
+* The createPackageContext (packageName, flags) method in the Context class that can be used to get the Context object for the specified package name application.
 
-* View.class has methods called getLocationInWindow (int []) & getLocationOnScreen (int []) ,They can get View position in the window / screen;
+* The setKeyListener (KeyListener) method of the TextView class;
+Where DigitsKeyListener class, using the getInstance (String accepted) method to specify EditText to enter a character set;
 
-* Context.getCacheDir() - Use the cache dir for caching data. Simple enough but some don't know it exists.
+* GetLocationInWindow (int []) method in the View class and the getLocationOnScreen (int []) method to get the position of the View in the window /
 
-* StaticLayout - Useful for measuring text that you're about to render into a custom View.
+* Context.getCacheDir () - can get the default cached path to app.
 
-* Recommended data-structure :
+* StaticLayout is useful when drawing text in a custom control.
+
+* Android in the four major components do not create through the new way out.
+
+* Test app, we mostly want to debug and release version installed at the same time to the phone, you can modify the applicationle in gradle to achieve:
 ```
-ArrayMap<K,V> in place of HashMap<K,V>
-ArraySet<K,V> in place of HashSet<K,V>
-SparseArray<V> in place of HashMap<Integer,V>
-SparseBooleanArray in place of HashMap<Integer,Boolean>
-SparseIntArray in place of HashMap<Integer,Integer>
-SparseLongArray in place of HashMap<Integer,Long>
-LongSparseArray<V> in place of HashMap<Long,V>
+Android {
+    BuildTypes {
+        Debug {
+            ApplicationIdSuffix '.debug'
+            VersionNameSuffix '-DEBUG'
+        }
+        Release {
+            // ...
+        }
+    }
+}
 ```
 
-####From [the following address](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
+* In most of the login interface, provide the user is the password option, Support Library 24.2.0 provides an official implementation, TextInputLayout added passwordToggleEnabled attribute to open this feature, and can set the icon through passwordToggleDrawable. (From: microblogging on Android notes)
+
+* Similarly, in the Support Library 24.2.0 increase RecyclerView in the fast scroll when the callback interface, SnapHelper is an implementation of an implementation of OnFlingListener abstract class, LinearSnapHelper is a complete implementation.LinearSnapHelper default function is similar to ViewPager, in the After the end of the scrolling, the list will be selected for a central display (there is a start position display, or the end position shows [point me] (https://github.com/rubensousa/RecyclerViewSnap).) For example:
+```
+    LinearLayoutManager linearLayoutManager = new LinearLayoutManager (getContext (), LinearLayoutManager.HORIZONTAL, false);
+    RecyclerView.setLayoutManager (linearLayoutManager);
+    LinearSnapHelper snapHelper = new LinearSnapHelper ();
+    SnapHelper.attachToRecyclerView (recyclerView);
+```
+
+* Recommended data structure in Android:
+```
+ArrayMap <K, V> in place of HashMap <K, V>
+ArraySet <K, V> in place of HashSet <K, V>
+SparseArray <V> in place of HashMap <Integer, V>
+SparseBooleanArray in place of HashMap <Integer, Boolean>
+SparseIntArray in place of HashMap <Integer, Integer>
+SparseLongArray in place of HashMap <Integer, Long>
+LongSparseArray <V> in place of HashMap <Long, V>
+```
+
+* Generate GUID (because java can only generate UUID, so here to change):
+```
+    Return UUID.randomUUID (). ToString (). ToUpperCase (). ReplaceAll ("-", "");
+```
+
+* Business scenarios: the need to regularly scan the database background, upload local photos to the cloud, the timing of the task using what mode:
+1.Handler or Timer timing is generally a second-level task, Timer will start additional threads, and Handler can not.
+2. Both Handler and Timer need to rely on the process to survive
+3. Handler implementation of the task of the class: HandlerTimer
+4. If the time is long, you need to use the AlarmManager
+5. In addition, we should prioritize whether such business can be based on event notification.
+6. If you are adding files to the media library, we can use the registerContentObserver to monitor media library file changes.
+
+* Activity as a parameter passed to a static method, will affect the normal destruction of the Activity?
+1. Memory leaks are independent of whether or not the method is static or not, and is related to the internal method body implementation.
+2. Memory leaks can be easily understood as: the long life cycle of the object is not properly held holding a short life cycle of the object, resulting in short life cycle of the object can not be recycled.
+3. For example, the Activity instance is held by the Application object, and the Activity instance is held by the static variable.
+
+* In the assert folder to store a single file size can not exceed 1M, if the read more than 1M file will be reported "Data exceeds UNCOMPRESS_DATA_MAX (1314625 vs 1048576)" IOException. If you have to store, you can split the file, go to merge the file
+
+* In the Android library can not use the switch-case statement to access the resource ID, because the case branch followed by the parameters must be constant, and library of each resource ID are not declared as final.
+
+* The current Activity's onPause method is executed after the implementation of the next Activity onCreate method, so in the onPause method is not suitable for long time-consuming work, which will affect the efficiency of the jump between the pages;
+
+* Do not pass bulk data via Bundle, otherwise it will report a TransactionTooLargeException exception
+
+* (AnimationDrawable in Android5.0 and above version has been significantly optimized) try not to use AnimationDrawable, it will be in the initialization of all the pictures will be loaded into memory, in particular, memory, and can not be released, the next time after the release Reloading;
+
+* .9 Figure can not be compressed by tinypng, otherwise there will be problems;
+
+* Genymotion simulator is fast because it is based on the x86 architecture, if your application used so, but no x86 architecture so, can only give up the use of it; Android Studio simulator is the same;
+
+* When using Toast, it is recommended to define a global Toast object, which can avoid the continuous display Toast can not cancel the last Toast message (if you have a continuous pop-up Toast, avoid the use of Toast.makeText);
+
+* Try to avoid setting the background to the window and the Activity at the same time, which will cause the transition to be drawn. You can reduce the layer by changing the windowBackground background when you set the theme to the Activity. Sometimes it will be blank or white in order to avoid entering the Activity. Screen (and the theme), will set the theme in the Activity to set the background to the window, if the case to the Activity also set the background, is to double the memory:
+```
+<Item name = "android: windowBackground"> ​​@ null </ item>
+```
+
+* Settings to change the font for the large and the like will affect the app font style, the solution is: 1. All fonts used to replace the unit dp, no longer use sp. This is not very tricky, not everyone can do it.
+2.
+```
+ Configuration configuration = getResources (). GetConfiguration ();
+  Configuration.fontScale = (float) 1;
+  / Medium.85 small, 1 standard size, 1.15 large, 1.3 large, 1.45 large
+  DisplayMetrics metrics = new DisplayMetrics ();
+  GetWindowManager (). GetDefaultDisplay (). GetMetrics (metrics);
+  Metrics.scaledDensity = configuration.fontScale * metrics.density;
+  GetBaseContext (). GetResources (). UpdateConfiguration (configuration, metrics);
+  // (except ps: dialog popupwindow, these two need to re-set the fontScale in the control)
+```
+
+
+* Android in the introduction of new alternative annotations are IntDef and StringDef, here to IntDef example to illustrate.
+```
+Public class Colors {
+    @IntDef ({RED, GREEN, YELLOW})
+    // declare the necessary int constants, decorate LightColors with @IntDef, set the arguments to the set to be enumerated
+    @Retention (RetentionPolicy.SOURCE)
+    // use @Retention (RetentionPolicy.SOURCE) to specify annotations that exist only in the source code and not in the class file
+    Public @interface LightColors {}
+    // declare a comment for LightColors
+    Public static final int RED = 0;
+    Public static final int GREEN = 1;
+    Public static final int YELLOW = 2;
+}
+//usage
+Private void setColor (@ Colors.LightColors int color) {
+        Log.d ("MainActivity", "setColor color =" + color);
+}
+// call this method when
+SetColor (Colors.GREEN);
+```
+
+* PathInterpolatorCompat is very easy to use it to create a variety of interpolation curve, give a very simple example:
+```
+Path path = new Path ();
+Path.cubicTo (0.2f, 0f, 0.1f, 1f, 0.5f, 1f);
+Path.lineTo (1f, 1f);
+ObjectAnimator animator = ObjectAnimator.ofFloat (view, View.TRANSLATION_X, 500);
+Animator.setInterpolator (PathInterpolatorCompat.create (path));
+Animator.start ();
+```
+
+* Detect whether the current network can access the remote server (domestic detection by Baidu Baidu)
+```
+Public static boolean isNetWorkAvailable (final context context) {
+        Try {
+            Runtime runtime = Runtime.getRuntime ();
+            Process pingProcess = runtime.exec ("/ system / bin / ping -c 1 www.baidu.com");
+ Int exitCode = pingProcess.waitFor (); // 0 stands for connectivity, 2 is unreachable
+ Return (exitCode == 0);
+        } Catch (Exception e) {
+            E.printStackTrace ();
+        }
+        Return false
+    }
+```
+
+
+* Intercept system to return key (onBackPressed ()), so that App does not exit, but into the background
+```
+@Override
+  Public void onBackPressed () {
+    MoveTaskToBack (false);
+  }
+```
+
+* View.performClick () automatically calls the View Click event. Normally buttons and other controls can only trigger a click event when the user clicks, which can trigger simulated user click behavior by some special conditions. There are also similar performLongClick () methods.
+
+* Linkify.addLinks () through the android: autoLink attribute can be added to them, such as web, phone and other fixed template hyperlink event. But after all, the system template is limited, and the use of Linkify.addLinks () method can add some in-app custom templates, such as Sina microblogging "@XXX" format hyperlink jump, etc., can be customized by regular expression Match processing.
+
+* GetWindow (). AddFlags (WindowManager.LayoutParams.FLAG_SECURE) Set the security window to disable the system screenshots. To prevent some of the interface in the App screen was screened and displayed in other equipment caused by information leakage. (Common mobile device system screenshots: press the power button and volume keys.)
+
+* Activity lifecycle ([Ref Link] (https://www.bignerdranch.com/blog/android-activity-lifecycle-onStop/))
+! [] (Https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/activityStateDiagram.jpeg)
+
+
+#### From [the following address] (https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
+
+### Donation
+If you think this item is helpful to you, please ask the author a cup of coffee. <br /> <br />
+! [] (Https://raw.githubusercontent.com/jiang111/RxJavaApp/master/qrcode/wechat_alipay.png)
+
+
 ### License
 
     Copyright 2016 NewTab
@@ -506,4 +611,3 @@ LongSparseArray<V> in place of HashMap<Long,V>
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
