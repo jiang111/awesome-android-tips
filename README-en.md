@@ -1,7 +1,7 @@
 ![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/title.png) <br /><br />
 [![jiang111/image](https://jiang111.github.io/images/awesome.svg)](https://github.com/jiang111/awesome-android-tips)  <br />
 
-Worthy collection of AS plugin  ->_->:https://github.com/jiang111/awesome-androidstudio-plugins <br />
+Worthy collection of AS plugin ->_->:https://github.com/jiang111/awesome-androidstudio-plugins <br />
 
 Here we collect some of the commonly used Android code, continuous updates, the content from their usual accumulation and see the article on the network, part of the original address at the bottom. If there is an error welcome correction, if there is infringement, please contact me to delete. There may be duplicate content, please ignore or remind me to delete. <br /> <br />
 
@@ -90,10 +90,11 @@ SetContentView (R.layout.main);
 * Determine whether the phone is not flying mode boolean isEnabled = Settings.System.getInt(context.getContentResolver(), Settings.System.AIRPLANE_MODE_ON,0) == 1;
 
 * TabLayout modifies the font method
-The official TabLayout does not provide a way to modify the TextView size, you can create a new style customTabLayoutTextAppearance inheritance TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse, and then add the item, set up android: textAllCaps is true, and then set up android: textSize you want to set size.
-![](Http://ww1.sinaimg.cn/large/640f03afjw1ex0t17aj67j20uk0580uf.jpg)
+The official TabLayout does not provide a way to modify the TextView size, you can create a new style customTabLayoutTextAppearance inheritance TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse, and then add the item, 
+set up android: textAllCaps is true, and then set up android: textSize you want to set size.
+![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/custom_style1.jpg)
 And then in the TabLayout layout file set app: tabTextAppearance="@style/CustomTabLayoutTextAppearance" can be.
-![](Http://ww1.sinaimg.cn/large/640f03afjw1ex0t1gub93j20ru0a477q.jpg)
+![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/custom_style2.jpg)
 
 The best way to traverse HashMap
 ```
@@ -140,7 +141,8 @@ Public static int randInt (int min, int max) {
 * Do not use SharedPreferences between multiple processes to share data, although it can (MODE_MULTI_PROCESS), but very unstable
 
 * Sometimes you can not use the Application of the Context, or will be error (such as start Activity, show Dialog, etc.)
-![](Https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/context_usage.png)
+
+![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/context_usage.png)
 
 >*Note: we have to see some NO on the addition of some numbers, in fact, these ability is YES from the ability, but why is it NO? One of the following explanations:
 1. Number 1: start Activity in these classes is possible, but need to create a new task, the general situation is not recommended;
@@ -196,9 +198,9 @@ Public static int randInt (int min, int max) {
 
 * Apache to provide a series of jar package: commons-lang.jar, commons-collections.jar, commons-beanutils.jar, etc., there are many ways you may have used dozens of hundreds of lines of code to achieve, but the implementation of efficiency may Much worse, such as: ArrayUtils, StringUtils ... ...;
 
-* ActivityLifecycleCallbacks interface, used in the Application class to monitor the status of the Activity changes [read address me](http://mp.weixin.qq.com/s?__biz=MzA3ODkzNzM3NQ==&mid=401277907&idx=1&sn=0b2246f5178292596fc3a8295283359c# Rd)
+* ActivityLifecycleCallbacks interface, used in the Application class to monitor the status of the Activity changes [read address me](http://mp.weixin.qq.com/s?__biz=MzA3ODkzNzM3NQ==&mid=401277907&idx=1&sn=0b2246f5178292596fc3a8295283359c#rd)
 
-* ActionBar.hide() /.Show() As the name suggests, hide and show ActionBar, you can gracefully switch between full screen and actionbar.
+* ActionBar.hide()/.Show() As the name suggests, hide and show ActionBar, you can gracefully switch between full screen and actionbar.
 
 * SystemClock.sleep() This method is very convenient to ensure that a certain time of sleep, usually I used to debug and simulate the network delay.
 
@@ -240,7 +242,7 @@ Public static int randInt (int min, int max) {
 
 * Set the TextView single line when the show do not use Lines = 1, and use singleLine = "true", because the Meizu part of the phone in the set Lines = 1, and then the value of TextView all the numbers, you will be muddled The
 
-* TouchDelegate can be used to change the touch area of ​​View. Scene: For example, in the RecyclerView's ItemView contains the CheckBox component, and then want to achieve when you click on the ItemView, you can also trigger the CheckBox, you can use this class
+* TouchDelegate can be used to change the touch area of View. Scene: For example, in the RecyclerView's ItemView contains the CheckBox component, and then want to achieve when you click on the ItemView, you can also trigger the CheckBox, you can use this class
 
 * ArgbEvaluator can be used to calculate the interpolation between different color values, with ValueAnimator.ofObject or ViewPager.PageTransformer use, you can achieve a smooth transition between different colors.
 
@@ -267,8 +269,8 @@ Public static int randInt (int min, int max) {
 * Android: clipToPadding Set whether the parent view allows its child view to be drawn in its padding(in this case, the parent view padding). Is it a bit around? Give a real scene: If there is a ListView, we want in the initial position, the first item from the top of the distance of 10dp, you can add in the ListView layout android: clipToPadding="false" android: paddingTop ="10dp" can be. Is not it convenient?
 
 * Rv's Layoutmanager can be directly stated in xml, the specific code can be viewed RecyclerView.createLayoutManager method.
-![](Https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/recycler_1.jpeg)
-![](Https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/recycler_2.jpeg)
+![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/recycler_1.jpeg)
+![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/recycler_2.jpeg)
 
 
 * RecyclerView in 23.2. + Version of the new automatic measurement function, due to the addition of automatic measurement, then the root of its item in the direction of the need to measure the direction can not write match_parent, and need to be changed into wrap_content
@@ -342,8 +344,8 @@ Public static Bitmap blurBitmap (Context context, Bitmap src, int radius) {
 ```
 
 * If you want to save a view as Bitmap, under normal circumstances with the first method can be, but if it is ScrollView, you must use the second method. <br />
-![](Https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/capture_view_1.jpg)
-![](Https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/capture_view_2.jpg)
+![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/capture_view_1.jpg)
+![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/capture_view_2.jpg)
 
 * When Activity LauncherMode is singleTask singleInstance, use startActivityForResult to return immediately, can not be called normally. Please see http://www.360doc.com/content/15/0123/14/12928831_443085580.shtml
 
@@ -489,7 +491,7 @@ LongSparseArray <V> in place of HashMap <Long, V>
 
 * Try to avoid setting the background to the window and the Activity at the same time, which will cause the transition to be drawn. You can reduce the layer by changing the windowBackground background when you set the theme to the Activity. Sometimes it will be blank or white in order to avoid entering the Activity. Screen (and the theme), will set the theme in the Activity to set the background to the window, if the case to the Activity also set the background, is to double the memory:
 ```
-<Item name = "android: windowBackground"> ​​@ null </ item>
+<Item name = "android: windowBackground">@null</ item>
 ```
 
 * Settings to change the font for the large and the like will affect the app font style, the solution is: 1. All fonts used to replace the unit dp, no longer use sp. This is not very tricky, not everyone can do it.
@@ -568,16 +570,15 @@ Public static boolean isNetWorkAvailable (final context context) {
 * GetWindow (). AddFlags (WindowManager.LayoutParams.FLAG_SECURE) Set the security window to disable the system screenshots. To prevent some of the interface in the App screen was screened and displayed in other equipment caused by information leakage. (Common mobile device system screenshots: press the power button and volume keys.)
 
 * Activity lifecycle ([Ref Link](https://www.bignerdranch.com/blog/android-activity-lifecycle-onStop/))
-![](Https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/activityStateDiagram.jpeg)
-
+![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/activityStateDiagram.jpeg)
 
 #### From [the following address](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
 ### Donation
+
 If you think this item is helpful to you, please ask the author [a cup of coffee](https://paypal.me/jyuesong). <br /> <br />
 
-![](Https://raw.githubusercontent.com/jiang111/RxJavaApp/master/qrcode/wechat_alipay.png)
-
+![](https://raw.githubusercontent.com/jiang111/RxJavaApp/master/qrcode/wechat_alipay.png)
 
 ### License
 
