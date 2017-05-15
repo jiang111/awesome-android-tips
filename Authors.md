@@ -14,3 +14,4 @@
 >* http://droidyue.com/blog/2016/10/24/notes-for-an-android-qa/
 >* https://zhuanlan.zhihu.com/p/25120433
 >* https://juejin.im/post/58c407ee44d90400698757d8
+>* https://github.com/xxv/android-lifecycle
