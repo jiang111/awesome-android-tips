@@ -575,7 +575,7 @@ Public static boolean isNetWorkAvailable (final context context) {
 * Activity lifecycle ([Ref Link](https://www.bignerdranch.com/blog/android-activity-lifecycle-onStop/))
 ![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/activityStateDiagram.jpeg)
 
-* ![](https://raw.githubusercontent.com/xxv/android-lifecycle/master/complete_android_fragment_lifecycle.png)
+* ![](https://github.com/jiang111/awesome-android-tips/raw/master/img/complete_activity_fragment_lifecycle.png)
 
 
 
