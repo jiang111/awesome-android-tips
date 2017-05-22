@@ -61,7 +61,7 @@ ExtractThumbnail (Bitmap source, int width, int height)
 
 * Static variables do not directly or indirectly refer to Activity, Service and so on. This will use the Activity and all the objects it references can not be freed, and then the user will run for a long time and the memory will go up.
 
-* Handler mechanism has a feature is not with the Activity, Service life cycle end and end. In other words, if you post a Delay Runnable, and then Runnable before the implementation of the exit from the Activity, Runnable to the time or to be executed. If the Runnable inside contains the operation to update the view, the program crashes.
+* Handler mechanism has a feature is not with the Activity, Service's life cycle ends. In other words, if you post a Delay Runnable, and then Runnable before the implementation of the exit from the Activity, Runnable to the time or to be executed. If Runnable contains an updated view operation, it may cause a memory leak, so you can call removeCallbacksAndMessages() to remove the message waiting for execution of this Handler.
 
 * Many people in the sub-thread update View like to use Context.runOnUiThread, this method has a drawback, that is, but the End of the life cycle, such as Activity has been destroyed, a call will collapse.
 
