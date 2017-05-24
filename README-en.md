@@ -577,7 +577,7 @@ Public static boolean isNetWorkAvailable (final context context) {
 
 * ![](https://github.com/jiang111/awesome-android-tips/raw/master/img/complete_activity_fragment_lifecycle.png)
 
-
+* RecyclerView calls notifyItem () when there is a default animation, you can call ((SimpleItemAnimator)recyclerView.getItemAnimator()).SetSupportsChangeAnimations(false); to remove the default animation.
 
 #### From [the following address](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
