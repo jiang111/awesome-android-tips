@@ -592,6 +592,7 @@ public static boolean isNetWorkAvailable(final Context context) {
 
 * ![](https://github.com/jiang111/awesome-android-tips/raw/master/img/complete_activity_fragment_lifecycle.png)
 
+* RecyclerView 调用notifyItem()的时候会有默认的动画,可以通过调用((SimpleItemAnimator)recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);来去掉默认动画.以防止出现闪屏的问题
 
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
