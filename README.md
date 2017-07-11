@@ -594,6 +594,12 @@ public static boolean isNetWorkAvailable(final Context context) {
 
 * RecyclerView 调用notifyItem()的时候会有默认的动画,可以通过调用((SimpleItemAnimator)recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);来去掉默认动画.以防止出现闪屏的问题
 
+* Toolbar 使用的主题如果 parent="ThemeOverlay.AppCompat.Light"，只要改一下 <item name="colorControlNormal">@color/white</item> 就可以使 OverflowButton 变为白色，同时点击它展开的菜单背景也可以是白的
+
+*  Android View的生命周期示例图样。来自G+ +Arpit Mathur
+![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/view_lifecycle.jpg)
+
+
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
 
