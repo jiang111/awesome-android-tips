@@ -599,6 +599,7 @@ public static boolean isNetWorkAvailable(final Context context) {
 *  Android View的生命周期示例图样。来自G+ +Arpit Mathur
 ![](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/view_lifecycle.jpg)
 
+* 当需要从资源文件中获取 html 并展示时，使用 Resource#getText() 而不是 Resource#getString()。当需要动态显示 HTML 时，使用 Html.fromHtml() [请看这里](http://saket.me/html-tags-textview/)
 
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
