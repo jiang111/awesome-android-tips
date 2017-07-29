@@ -601,6 +601,19 @@ public static boolean isNetWorkAvailable(final Context context) {
 
 * 当需要从资源文件中获取 html 并展示时，使用 Resource#getText() 而不是 Resource#getString()。当需要动态显示 HTML 时，使用 Html.fromHtml() [请看这里](http://saket.me/html-tags-textview/)
 
+* JAVA中时间String转Timestamp
+```
+try {
+	DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	format.setLenient(false);
+	//要转换字符串 str_test  自定义的格式为 yyyy-mm-dd，可以改成你需要的格式
+	String str_test ="2011-04-24";
+	Timestamp ts = new Timestamp(format.parse(str_test).getTime());
+	System.out.println(ts.toString());
+} catch (ParseException e) {
+e.printStackTrace();
+}
+```
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
 
