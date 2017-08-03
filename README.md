@@ -614,6 +614,9 @@ try {
 e.printStackTrace();
 }
 ```
+
+* 当Activity 继承 FragmentActivity的时候，调用startActivityForResult方法中传递的requestCode范围应该在0-65535范围内，否则会报"Can only use lower 16 bits for requestCode"异常。
+
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
 
