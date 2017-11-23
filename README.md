@@ -619,6 +619,8 @@ e.printStackTrace();
 
 * 当Activity 继承 FragmentActivity的时候，调用startActivityForResult方法中传递的requestCode范围应该在0-65535范围内，否则会报"Can only use lower 16 bits for requestCode"异常。
 
+* Android有一个隐藏的类可以判断文本输入框内输入的是不是表情，这个类就是 android.text.Emoji类，它的isEmoji(int codePoint)方法可以直接判断出来是不是表情。这个类是隐藏的，如果要用到则需要将它拷贝出来。
+
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
 
