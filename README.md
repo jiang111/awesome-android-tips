@@ -621,6 +621,15 @@ e.printStackTrace();
 
 * Android有一个隐藏的类可以判断文本输入框内输入的是不是表情，这个类就是 android.text.Emoji类，它的isEmoji(int codePoint)方法可以直接判断出来是不是表情。这个类是隐藏的，如果要用到则需要将它拷贝出来。
 
+*  布局中不得不使用ViewGroup 多重嵌套时，不要使用LinearLayout 嵌套，改用RelativeLayout，可以有效降低嵌套数。
+
+*  不能使用ScrollView 包裹ListView/GridView/ExpandableListVIew;因为这样会把ListView 的所有Item 都加载到内存中，要消耗巨大的内存和cpu 去绘制图面。
+
+*  不要通过Intent 在Android 基础组件之间传递大数据（binder transaction缓存为1MB），可能导致OOM。
+
+*   在Application 的业务初始化代码加入进程判断，确保只在自己需要的进程初始化。特别是后台进程减少不必要的业务初始化。
+
+
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
 
