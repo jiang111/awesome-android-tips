@@ -637,8 +637,7 @@ e.printStackTrace();
 API level>=17，允许js 被调用的函数必须以@JavascriptInterface 进行注解，因此不受影响； 对于API level < 17，尽量不要使用addJavascriptInterface，如果一定要用，那么：
 1) 使用https 协议加载URL，使用证书校验，防止访问的页面被篡改挂马；
 2) 对加载URL 做白名单过滤、完整性校验等防止访问的页面被篡改；
-3) 如果加载本地html,应该会HTML 内置在APK 中，以及对HTML 页面进行完整
-性校验。
+3) 如果加载本地html,应该会HTML 内置在APK 中，以及对HTML 页面进行完整性校验。
 
 ```
 
