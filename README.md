@@ -627,7 +627,21 @@ e.printStackTrace();
 
 *  不要通过Intent 在Android 基础组件之间传递大数据（binder transaction缓存为1MB），可能导致OOM。
 
-*   在Application 的业务初始化代码加入进程判断，确保只在自己需要的进程初始化。特别是后台进程减少不必要的业务初始化。
+*  在Application 的业务初始化代码加入进程判断，确保只在自己需要的进程初始化。特别是后台进程减少不必要的业务初始化。
+
+*  将android:allowbackup 属性设置为false，防止adb backup 导出数据。
+
+* 除非min API level >=17，请注意addJavascriptInterface 的使用
+```
+说明：
+API level>=17，允许js 被调用的函数必须以@JavascriptInterface 进行注解，因此不受影响； 对于API level < 17，尽量不要使用addJavascriptInterface，如果一定要用，那么：
+1) 使用https 协议加载URL，使用证书校验，防止访问的页面被篡改挂马；
+2) 对加载URL 做白名单过滤、完整性校验等防止访问的页面被篡改；
+3) 如果加载本地html,应该会HTML 内置在APK 中，以及对HTML 页面进行完整
+性校验。
+
+```
+
 
 
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
