@@ -15,3 +15,4 @@
 >* https://zhuanlan.zhihu.com/p/25120433
 >* https://juejin.im/post/58c407ee44d90400698757d8
 >* https://github.com/xxv/android-lifecycle
+>* 阿里巴巴android开发手册
