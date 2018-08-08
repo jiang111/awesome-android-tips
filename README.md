@@ -641,6 +641,22 @@ API level>=17，允许js 被调用的函数必须以@JavascriptInterface 进行�
 
 ```
 
+* 如何动态修改AlertDialog的Button样式,
+```
+//监听Dialog的setOnShowListener方法
+dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+    @Override
+    public void onShow(final DialogInterface dialog) {
+      Button negativeButton = ((AlertDialog)dialog).getButton(DialogInterface.BUTTON_NEGATIVE);
+      Button positiveButton = ((AlertDialog)dialog).getButton(DialogInterface.BUTTON_POSITIVE);
+      negativeButton.invalidate();
+      positiveButton.invalidate();
+    }
+});
+dialog.show();
+
+```
+
 
 
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
