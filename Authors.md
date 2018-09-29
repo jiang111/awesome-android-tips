@@ -16,3 +16,4 @@
 >* https://juejin.im/post/58c407ee44d90400698757d8
 >* https://github.com/xxv/android-lifecycle
 >* 阿里巴巴android开发手册
+>* https://juejin.im/post/5baedbf05188255c596714ab
