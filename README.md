@@ -657,6 +657,28 @@ dialog.show();
 
 ```
 
+* 升级 RecycleView 版本到 25.1.0 及以上使用 Prefetch 功能，可[参考 RecyclerView 数据预取](https://juejin.im/entry/58a3f4f62f301e0069908d8f)。
+
+* 如果 Item 高度是固定的话，可以使用 RecyclerView.setHasFixedSize(true); 来避免 requestLayout 浪费资源；
+
+* 如果不要求动画，可以通过 ((SimpleItemAnimator) rv.getItemAnimator()).setSupportsChangeAnimations(false); 把默认动画关闭来提升效率。
+
+* 通过 RecycleView.setItemViewCacheSize(size); 来加大 RecyclerView 的缓存，用空间换时间来提高滚动的流畅性。
+
+* 如果多个 RecycledView 的 Adapter 是一样的，比如嵌套的 RecyclerView 中存在一样的 Adapter，可以通过设置 RecyclerView.setRecycledViewPool(pool); 来共用一个 RecycledViewPool。
+
+* 对 ItemView 设置监听器，不要对每个 Item 都调用 addXxListener，应该大家公用一个 XxListener，根据 ID 来进行不同的操作，优化了对象的频繁创建带来的资源消耗。
+
+* 通过 getExtraLayoutSpace 来增加 RecyclerView 预留的额外空间（显示范围之外，应该额外缓存的空间），如下所示
+```
+new LinearLayoutManager(this) {
+    @Override
+    protected int getExtraLayoutSpace(RecyclerView.State state) {
+        return size;
+    }
+};
+
+```
 
 
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
@@ -668,7 +690,7 @@ dialog.show();
 
 ### License
 
-    Copyright 2016 NewTab
+    Copyright 2018 NewTab
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
