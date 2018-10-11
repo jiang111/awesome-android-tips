@@ -680,6 +680,13 @@ new LinearLayoutManager(this) {
 
 ```
 
+* WebView 在 API 21之后,写Cookie的时候默认禁止了跨域写cookie,需要通过代码,来设置开启跨域请求
+```
+ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            CookieManager.getInstance().setAcceptThirdPartyCookies(WebView, true);
+        }
+```
+
 
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
