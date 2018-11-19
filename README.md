@@ -687,6 +687,18 @@ new LinearLayoutManager(this) {
         }
 ```
 
+* 使用IdleHandler,替代Handler.postDelay(),IdleHandler是在我们的onResume和measure, layout, draw这么message执行结束之后， 提供了他们执行完毕的回调. [看这里](https://wetest.qq.com/lab/view/352.html)
+```
+ Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() {
+            @Override
+            public boolean queueIdle() {
+                //TODO...
+                return false;
+            }
+        });
+```
+
+
 
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
