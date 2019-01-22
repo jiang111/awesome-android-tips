@@ -699,6 +699,25 @@ new LinearLayoutManager(this) {
 ```
 
 
+* 在Multidex分包的时候,如果主dex过大, 5.0以下的机型可能会出现multidex installation failure错误,这时需要让主dex方法数小一点.,配置方法
+
+```
+配置正常的multiDex库之后,在主模块的gradle文件添加如下代码:
+Android{
+	 dexOptions {
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
+        additionalParameters += '--multi-dex'
+        additionalParameters += '--set-max-idx-number=35000'//(35000可根据自己的需求更改)来适配4.0-4.4一些低端机型，因为拆分的dex太大，这些低端机型加载不了dex
+        additionalParameters += '--minimal-main-dex'
+    }
+
+}
+```
+
+注意:在gradle版本3.1.0之后dex编译采用D8,可能会导致这种分包不成功。将gradle的版本降到3.0.0之后，分包成功。另外也可以采用gradle3.1.0或者以上的版本，然后将项目的gradle配置为android.enableD8=false //暂时关闭 即可
+
+
 
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
