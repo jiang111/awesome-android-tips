@@ -704,7 +704,8 @@ new LinearLayoutManager(this) {
 ```
 配置正常的multiDex库之后,在主模块的gradle文件添加如下代码:
 Android{
-	 dexOptions {
+     ...//其他代码
+    dexOptions {
         javaMaxHeapSize "4g"
         preDexLibraries = false
         additionalParameters += '--multi-dex'
