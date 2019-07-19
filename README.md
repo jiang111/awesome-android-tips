@@ -720,6 +720,8 @@ Android{
 
 * 高版本android中，可以使用Application启动Activity并且不设置FLAG，但在低版本中必须要设置FLAG,所以建议大家使用application的context去startActivity的时候添加FLAG_ACTIVITY_NEW_TASK
 
+* 不要滥用<item name="android:windowIsTranslucent">true</item> 属性,切勿为app设置该属性,而仅针对具体的activity进行设置.公司有位开发为整个app设置了该属性,我们有个签名的横屏页面,其他是强制竖屏页面,有个需求是进入该竖屏页面后某些特殊原因需要自动跳转到签名页面,而跳转到横屏页面后导致整个app的所有页面生命周期全部重新走了一遍,该签名页面无限循环打开.
+
 
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
