@@ -753,7 +753,7 @@ configurations.all {
 }
 ```
 
-
+>* Android library中的混淆需要使用consumerProguardFiles来配置,而不是proguardFiles
 
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
