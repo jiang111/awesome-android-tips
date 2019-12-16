@@ -11,6 +11,20 @@ EnglishVersion ->_->:https://github.com/jiang111/awesome-android-tips/blob/maste
 
 # ![Table of Contents](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/toc.png)
 
+* BuildConfig.DEBUG中的DEBUG值为true或者false不是取决于你的buildType,而是取决于buildTypes中的debuggable字段,比如:
+```
+buildTypes {
+        release {
+            debuggable true   //即使是release模式,但是由于debuggable是true,所以它的BuildConfig.DEBUG值依然是true
+        }
+        debug {
+	    debuggable false //即使是debug模式,但是由于debuggable是false,所以它的BuildConfig.DEBUG值依然是false
+        }
+    }
+```
+所以正常情况下不要配置debuggable字段
+
+
 * setBackgroundResource(0) 可以移除 View 的背景色
 
 * Resources.getSystem().getDisplayMetrics().density 可以不用 Context 也能获取屏幕密度哦
