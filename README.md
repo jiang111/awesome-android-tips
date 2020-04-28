@@ -769,6 +769,30 @@ configurations.all {
 
 * Android library中的混淆需要使用consumerProguardFiles来配置,而不是proguardFiles
 
+
+* ViewPager结合SwipeRefreshLayout的时候,建议对ViewPager添加如下代码:
+```
+viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+	    //禁止swipeRefreshLayout拿上下滑动的手势
+                swipeRefreshLayout.setEnabled(state == ViewPager.SCROLL_STATE_IDLE);
+
+            }
+        });
+```
+
+
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
 
