@@ -793,6 +793,14 @@ viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 ```
 
 
+* 重写EditText的时候,如果出现聚焦的时候无法弹出键盘,那就是defStyleAttr出现了问题
+```
+    public CustomEditText(Context context, AttributeSet attrs) {
+        this(context, attrs, android.R.attr.editTextStyle); // 需要传入android.R.attr.editTextStyle 而不是0
+    }
+```
+
+
 #### 摘自[如下地址](https://github.com/jiang111/awesome-android-tips/blob/master/Authors.md)
 
 
