@@ -808,6 +808,10 @@ viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 如果您觉得本项目对您有帮助，欢迎请作者一杯咖啡 <br /><br />
 ![](https://raw.githubusercontent.com/jiang111/RxJavaApp/master/qrcode/wechat_alipay.png)
 
+
+[![Stargazers over time](https://starchart.cc/jiang111/awesome-android-tips.svg)](https://starchart.cc/jiang111/awesome-android-tips)
+
+
 ### License
 
     Copyright 2018 NewTab
