@@ -11,6 +11,9 @@ EnglishVersion ->_->:https://github.com/jiang111/awesome-android-tips/blob/maste
 
 # ![Table of Contents](https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/toc.png)
 
+
+* gradle 3.6.0及以上版本会默认设置android:extractNativeLibs="false",这样会把未压缩的so文件打包到apk中,你的apk大小会大很多,想要压缩的可以在application节点下手动设置android:extractNativeLibs="true"
+
 * BuildConfig.DEBUG中的DEBUG值为true或者false不是取决于你的buildType,而是取决于buildTypes中的debuggable字段,比如:
 ```
 buildTypes {
